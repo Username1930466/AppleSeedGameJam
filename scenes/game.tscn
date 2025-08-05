@@ -104,105 +104,6 @@ scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAADAPr/AAAAAAAAAAADAPv/AAAAAAAAAAADAPz/AAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_lbhrr")
 
-[node name="PauseMenu" type="Node2D" parent="."]
-process_mode = 2
-visible = false
-script = ExtResource("5_s0nni")
-
-[node name="Label" type="Label" parent="PauseMenu"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -335.5
-offset_top = -480.0
-offset_right = 335.5
-offset_bottom = -305.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 128
-text = "Dino Mafia"
-
-[node name="PausedLabel" type="Label" parent="PauseMenu"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -106.0
-offset_top = -293.0
-offset_right = 106.0
-offset_bottom = -248.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 32
-text = "Game paused"
-
-[node name="ResumeButton" type="Button" parent="PauseMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -165.0
-offset_top = -48.0
-offset_right = 165.0
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Resume"
-
-[node name="SettingsButton" type="Button" parent="PauseMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -165.0
-offset_top = 142.5
-offset_right = 165.0
-offset_bottom = 238.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Settings"
-
-[node name="MenuButton" type="Button" parent="PauseMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -165.0
-offset_top = 333.0
-offset_right = 165.0
-offset_bottom = 429.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Menu"
-
-[node name="ScreenshakeToggle" type="CheckBox" parent="PauseMenu"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 721.0
-offset_top = 472.0
-offset_right = 945.0
-offset_bottom = 525.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-button_pressed = true
-text = "Screenshake"
-
-[node name="KeybindsLabel" type="Label" parent="PauseMenu"]
-offset_left = -940.0
-offset_top = 475.0
-offset_right = -279.0
-offset_bottom = 520.0
-theme_override_font_sizes/font_size = 32
-text = "WASD to move, LMB to shoot, ESC to pause"
-
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -245,12 +146,112 @@ text = "25"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PauseMenu" type="Node2D" parent="UI"]
+process_mode = 2
+visible = false
+script = ExtResource("5_s0nni")
+
+[node name="Label" type="Label" parent="UI/PauseMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -335.5
+offset_top = -480.0
+offset_right = 335.5
+offset_bottom = -305.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "Dino Mafia"
+
+[node name="PausedLabel" type="Label" parent="UI/PauseMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -106.0
+offset_top = -293.0
+offset_right = 106.0
+offset_bottom = -248.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Game paused"
+
+[node name="ResumeButton" type="Button" parent="UI/PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -48.0
+offset_right = 165.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="UI/PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = 142.5
+offset_right = 165.0
+offset_bottom = 238.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="MenuButton" type="Button" parent="UI/PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = 333.0
+offset_right = 165.0
+offset_bottom = 429.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Menu"
+
+[node name="ScreenshakeToggle" type="CheckBox" parent="UI/PauseMenu"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 721.0
+offset_top = 472.0
+offset_right = 945.0
+offset_bottom = 525.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+button_pressed = true
+text = "Screenshake"
+
+[node name="KeybindsLabel" type="Label" parent="UI/PauseMenu"]
+offset_left = -940.0
+offset_top = 475.0
+offset_right = -279.0
+offset_bottom = 520.0
+theme_override_font_sizes/font_size = 32
+text = "WASD to move, LMB to shoot, ESC to pause"
+
 [node name="Enemies" type="Node" parent="."]
+process_mode = 1
 
 [node name="NormalDino" parent="Enemies" instance=ExtResource("6_p57ef")]
 position = Vector2(117, 198)
 
-[connection signal="pressed" from="PauseMenu/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PauseMenu/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="PauseMenu/MenuButton" to="PauseMenu" method="_on_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/ScreenshakeToggle" to="PauseMenu" method="_on_screenshake_toggle_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/ResumeButton" to="UI/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/SettingsButton" to="UI/PauseMenu" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/MenuButton" to="UI/PauseMenu" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/ScreenshakeToggle" to="UI/PauseMenu" method="_on_screenshake_toggle_pressed"]

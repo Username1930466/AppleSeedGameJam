@@ -10,11 +10,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if Global.paused:
-			$PauseMenu.unpause()
+			$UI/PauseMenu.unpause()
 		else:
 			Global.paused = true
-			$PauseMenu.visible = true
-			$PauseMenu.position = $Player.position
+			$UI/PauseMenu.visible = true
+			$UI/PauseMenu.position = $Player.position
 			get_tree().paused = true
 	$UI.position = $Player/Camera2D.global_position
 	$UI/HealthBar.value = $Player.health
