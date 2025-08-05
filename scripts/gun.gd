@@ -29,6 +29,7 @@ func _process(delta: float):
 		bullet.dir = dir
 		bullet.position = $Output.global_position
 		Global.game.add_child(bullet)
-		Global.screenshake(20, 0.01, 3)
+		if Global.screenshake:
+			Global.cam.screenshake(20, 0.01, 3)
 		$Output/AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
 		$Output/AudioStreamPlayer2D.playing = true

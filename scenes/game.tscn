@@ -1,11 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://ck761pu6aihp1"]
+[gd_scene load_steps=8 format=4 uid="uid://ck761pu6aihp1"]
 
-[ext_resource type="Script" uid="uid://bucn6smj0guxs" path="res://scripts/game.gd" id="1_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://cxtiwxctd6gfu" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://bucn6smj0guxs" path="res://scripts/game.gd" id="1_cpr0p"]
+[ext_resource type="PackedScene" uid="uid://cxtiwxctd6gfu" path="res://scenes/player.tscn" id="2_78awf"]
+[ext_resource type="Script" uid="uid://yjjkdjuhsggu" path="res://scripts/camera.gd" id="3_78awf"]
+[ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="3_s0nni"]
+[ext_resource type="Script" uid="uid://bnnb31mnswo51" path="res://scripts/pause_menu.gd" id="5_s0nni"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
-texture = ExtResource("3_lnu2h")
+texture = ExtResource("3_s0nni")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -80,17 +82,125 @@ physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_lnu2h")
+process_mode = 3
+script = ExtResource("1_cpr0p")
 
-[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+[node name="Player" parent="." instance=ExtResource("2_78awf")]
+process_mode = 1
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2(2, 2)
 position_smoothing_enabled = true
+script = ExtResource("3_78awf")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+process_mode = 1
 z_index = -1
 scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAADAPr/AAAAAAAAAAADAPv/AAAAAAAAAAADAPz/AAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_lbhrr")
+
+[node name="PauseMenu" type="Node2D" parent="."]
+process_mode = 2
+visible = false
+script = ExtResource("5_s0nni")
+
+[node name="Label" type="Label" parent="PauseMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -335.5
+offset_top = -480.0
+offset_right = 335.5
+offset_bottom = -305.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "Dino Mafia"
+
+[node name="PausedLabel" type="Label" parent="PauseMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -106.0
+offset_top = -293.0
+offset_right = 106.0
+offset_bottom = -248.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Game paused"
+
+[node name="ResumeButton" type="Button" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -48.0
+offset_right = 165.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = 142.5
+offset_right = 165.0
+offset_bottom = 238.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="MenuButton" type="Button" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = 333.0
+offset_right = 165.0
+offset_bottom = 429.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Menu"
+
+[node name="ScreenshakeToggle" type="CheckBox" parent="PauseMenu"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 433.0
+offset_top = -224.0
+offset_right = 657.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+button_pressed = true
+text = "Screenshake"
+
+[node name="KeybindsLabel" type="Label" parent="PauseMenu"]
+offset_left = -940.0
+offset_top = 475.0
+offset_right = -279.0
+offset_bottom = 520.0
+theme_override_font_sizes/font_size = 32
+text = "WASD to move, LMB to shoot, ESC to pause"
+
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PauseMenu/MenuButton" to="PauseMenu" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ScreenshakeToggle" to="PauseMenu" method="_on_screenshake_toggle_pressed"]

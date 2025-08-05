@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="1_mkf8s"]
 [ext_resource type="Script" uid="uid://bgfqond0dcpem" path="res://scripts/bullet.gd" id="1_y25gk"]
-[ext_resource type="AudioStream" uid="uid://cawjj0ruhnuq0" path="res://bullet_brick.mp3" id="3_l5glv"]
+[ext_resource type="AudioStream" uid="uid://cawjj0ruhnuq0" path="res://sounds/bullet_brick.mp3" id="3_l5glv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y25gk"]
 size = Vector2(25, 12)
