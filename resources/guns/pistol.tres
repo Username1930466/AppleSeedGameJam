@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_6ux22")
-min_damage = 20.0
-max_damage = 20.0
+min_damage = 20
+max_damage = 20
 cooldown = 0.75
 capacity = 10
 reload_time = 5.0

@@ -1,8 +1,8 @@
 extends RigidBody2D
 
+var damage: int
 var dir: Vector2
 var hit = false
-var damage = 20
 @onready var enemy : NormalDinoEnemy
 
 func _ready() -> void:
@@ -19,6 +19,7 @@ func _on_area_2d_body_entered(body) -> void:
 	if body is TileMapLayer and !hit:
 		hit = true
 		$BulletSprite.reparent(Global.game, true)
+		$AudioStreamPlayer2D.volume_db = damage / 2
 		$AudioStreamPlayer2D.playing = true
 		await get_tree().create_timer(0.11).timeout
 	var hit_enemy = body.get_parent()
