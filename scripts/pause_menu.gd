@@ -12,6 +12,7 @@ func unpause():
 	get_tree().paused = false
 
 func _on_menu_button_pressed() -> void:
+	unpause()
 	get_tree().change_scene_to_packed(menu_scene)
 
 func _on_settings_button_pressed() -> void:
