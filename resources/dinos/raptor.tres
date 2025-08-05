@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dino" load_steps=4 format=3 uid="uid://2hopmdemj2oj"]
+
+[ext_resource type="Resource" uid="uid://brtuhunnv3y24" path="res://resources/guns/ak_47.tres" id="1_3ddo0"]
+[ext_resource type="Script" uid="uid://bcdxor7mnj062" path="res://resources/bases/dino.gd" id="1_cgq28"]
+[ext_resource type="Resource" uid="uid://cwxsj6rlyx3ln" path="res://resources/melee_attacks/claw.tres" id="2_x48sh"]
+
+[resource]
+script = ExtResource("1_cgq28")
+speed = 350.0
+defense = 0.0
+max_health = 150.0
+gun = ExtResource("1_3ddo0")
+melee_attack = ExtResource("2_x48sh")
+metadata/_custom_type_script = "uid://bcdxor7mnj062"

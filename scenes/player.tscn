@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dx56jjoxl4ho5" path="res://sounds/player_gunshot.mp3" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(128, 128)
+size = Vector2(128, 256)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 28
@@ -16,8 +16,7 @@ script = ExtResource("1_g2els")
 scale = Vector2(1, 2)
 texture = ExtResource("1_3vyb7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 64)
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Gun" type="Sprite2D" parent="."]
