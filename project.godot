@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dino Mafia"
-run/main_scene="uid://ck761pu6aihp1"
+run/main_scene="uid://5kcvuixub80q"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
