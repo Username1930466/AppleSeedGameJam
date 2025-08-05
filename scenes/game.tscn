@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://ck761pu6aihp1"]
+[gd_scene load_steps=9 format=4 uid="uid://ck761pu6aihp1"]
 
 [ext_resource type="Script" uid="uid://bucn6smj0guxs" path="res://scripts/game.gd" id="1_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://cxtiwxctd6gfu" path="res://scenes/player.tscn" id="2_78awf"]
 [ext_resource type="Script" uid="uid://yjjkdjuhsggu" path="res://scripts/camera.gd" id="3_78awf"]
 [ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="3_s0nni"]
 [ext_resource type="Script" uid="uid://bnnb31mnswo51" path="res://scripts/pause_menu.gd" id="5_s0nni"]
+[ext_resource type="PackedScene" uid="uid://dlkvwy6b6b54e" path="res://scenes/Enemies/normal_dino.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("3_s0nni")
@@ -199,6 +200,11 @@ offset_right = -279.0
 offset_bottom = 520.0
 theme_override_font_sizes/font_size = 32
 text = "WASD to move, LMB to shoot, ESC to pause"
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="NormalDino" parent="Enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(117, 198)
 
 [connection signal="pressed" from="PauseMenu/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]

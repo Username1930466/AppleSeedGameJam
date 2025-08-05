@@ -1,0 +1,22 @@
+extends State
+class_name NormalDinoCharge
+
+
+@export var enemy : CharacterBody2D
+@export var move_speed := 40.0
+
+var player : CharacterBody2D
+
+
+
+func Enter():
+	player = get_tree().get_first_node_in_group("Player")
+
+func Physics_Update(delta: float):
+	var distance = player.global_position - enemy.global_position
+	
+	if distance.length() < 400:
+		enemy.velocity = distance.normalized() * move_speed
+	
+	else:
+		Transitioned.emit(self,"NormalDinoIdle")

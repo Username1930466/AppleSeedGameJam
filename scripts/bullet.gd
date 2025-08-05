@@ -2,8 +2,11 @@ extends RigidBody2D
 
 var dir: Vector2
 var hit = false
+var damage = 20
+@onready var enemy : NormalDinoEnemy
 
 func _ready() -> void:
+	$Area2D.area_entered.connect(_on_area_2d_body_entered)
 	rotation = dir.angle()
 	linear_velocity = dir * 1000
 	$CPUParticles2D.emitting = true
@@ -11,10 +14,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	linear_velocity += dir
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body) -> void:
+	print(body)
 	if body is TileMapLayer and !hit:
 		hit = true
 		$BulletSprite.reparent(Global.game, true)
 		$AudioStreamPlayer2D.playing = true
 		await get_tree().create_timer(0.11).timeout
-		queue_free()
+	var hit_enemy = body.get_parent()
+	if body is NormalDinoEnemy:
+		print("yes")
+		body.health -= damage
+		print(body.health)
+	queue_free()

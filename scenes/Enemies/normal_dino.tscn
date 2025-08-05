@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlkvwy6b6b54e"]
+
+[ext_resource type="Script" uid="uid://chsfvqm6p2gcv" path="res://scripts/Enemy/NormalDino/normal_dino_enemy.gd" id="1_7qor5"]
+[ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="2_b5n0f"]
+[ext_resource type="Script" uid="uid://crck6i5effpsi" path="res://scripts/Enemy/NormalDino/normal_dino_idle.gd" id="3_7qor5"]
+[ext_resource type="PackedScene" uid="uid://bblyd1ais6kf8" path="res://scenes/state_machine.tscn" id="3_78en1"]
+[ext_resource type="Script" uid="uid://csgwtpi6mwhgm" path="res://scripts/Enemy/NormalDino/normal_dino_charge.gd" id="5_78en1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jn1pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b5n0f")
+}],
+"loop": true,
+"name": &"follow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b5n0f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7qor5"]
+radius = 49.0102
+
+[node name="NormalDino" type="CharacterBody2D"]
+collision_layer = 18
+collision_mask = 18
+script = ExtResource("1_7qor5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jn1pm")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7qor5")
+
+[node name="State Machine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("3_78en1")]
+initial_state = NodePath("NormalDinoCharge")
+
+[node name="NormalDinoIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_7qor5")
+enemy = NodePath("../..")
+move_speed = 20.0
+metadata/_custom_type_script = "uid://crck6i5effpsi"
+
+[node name="NormalDinoCharge" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_78en1")
+enemy = NodePath("../..")
+move_speed = 60.0
+metadata/_custom_type_script = "uid://csgwtpi6mwhgm"
