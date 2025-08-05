@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bnnb31mnswo51" path="res://scripts/pause_menu.gd" id="5_s0nni"]
 [ext_resource type="Texture2D" uid="uid://cbqnukcc3vyho" path="res://textures/Image.png" id="6_aug50"]
 [ext_resource type="FontFile" uid="uid://bsjbfgpf7ard3" path="res://CabalBold-78yP.ttf" id="7_kiw3p"]
+[ext_resource type="PackedScene" uid="uid://dlkvwy6b6b54e" path="res://scenes/Enemies/normal_dino.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("3_s0nni")
@@ -243,6 +244,10 @@ theme_override_font_sizes/font_size = 128
 text = "25"
 horizontal_alignment = 1
 vertical_alignment = 1
+[node name="Enemies" type="Node" parent="."]
+
+[node name="NormalDino" parent="Enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(117, 198)
 
 [connection signal="pressed" from="PauseMenu/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
