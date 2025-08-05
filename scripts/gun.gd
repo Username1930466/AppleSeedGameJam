@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var cooldown_length = 0.25
+@export var cooldown_length = 0.5
 @export var norm_output_pos = Vector2(128, -64)
 @export var flip_output_pos = Vector2(128, 64)
 
@@ -30,3 +30,5 @@ func _process(delta: float):
 		bullet.position = $Output.global_position
 		Global.game.add_child(bullet)
 		Global.screenshake(20, 0.01, 3)
+		$Output/AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
+		$Output/AudioStreamPlayer2D.playing = true
