@@ -3,7 +3,6 @@ extends RigidBody2D
 var damage: int
 var dir: Vector2
 var hit = false
-var damage = 20
 @onready var enemy : NormalDinoEnemy
 
 func _ready() -> void:
