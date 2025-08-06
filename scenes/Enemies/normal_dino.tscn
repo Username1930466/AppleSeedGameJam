@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlkvwy6b6b54e"]
+[gd_scene load_steps=9 format=3 uid="uid://dlkvwy6b6b54e"]
 
 [ext_resource type="Script" uid="uid://chsfvqm6p2gcv" path="res://scripts/Enemy/NormalDino/normal_dino_enemy.gd" id="1_7qor5"]
 [ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="2_b5n0f"]
 [ext_resource type="Script" uid="uid://crck6i5effpsi" path="res://scripts/Enemy/NormalDino/normal_dino_idle.gd" id="3_7qor5"]
 [ext_resource type="PackedScene" uid="uid://bblyd1ais6kf8" path="res://scenes/state_machine.tscn" id="3_78en1"]
 [ext_resource type="Script" uid="uid://csgwtpi6mwhgm" path="res://scripts/Enemy/NormalDino/normal_dino_charge.gd" id="5_78en1"]
+[ext_resource type="Script" uid="uid://b5y5t8rgd8mvg" path="res://scripts/Enemy/NormalDino/normal_dino_dead.gd" id="6_wsy1b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jn1pm"]
 animations = [{
@@ -54,3 +55,8 @@ script = ExtResource("5_78en1")
 enemy = NodePath("../..")
 move_speed = 60.0
 metadata/_custom_type_script = "uid://csgwtpi6mwhgm"
+
+[node name="NormalDinoDead" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_wsy1b")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://b5y5t8rgd8mvg"

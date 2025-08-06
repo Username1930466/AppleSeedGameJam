@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr0f248x5bkhg"]
+
+[ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="1_6ygg4"]
+[ext_resource type="Script" uid="uid://nyhe12j6rbx" path="res://scripts/Enemy/FlyingDino/flying_dino_enemy.gd" id="1_vbxqa"]
+[ext_resource type="Script" uid="uid://ey6sb7phbmet" path="res://scripts/State Machine.gd" id="2_vbxqa"]
+[ext_resource type="Script" uid="uid://pqquwts5rq17" path="res://scripts/Enemy/FlyingDino/flying_dino_idle.gd" id="4_y5tnh"]
+[ext_resource type="Script" uid="uid://bde4jyvrl64fd" path="res://scripts/Enemy/FlyingDino/flying_dino_charge.gd" id="5_ikj4b"]
+[ext_resource type="Script" uid="uid://bfno11y1c3dc0" path="res://scripts/Enemy/FlyingDino/flying_dino_dead.gd" id="6_5e5ng"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5tnh"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"follow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6ygg4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikj4b"]
+radius = 53.0
+
+[node name="FlyingDino" type="CharacterBody2D"]
+collision_layer = 6
+collision_mask = 22
+script = ExtResource("1_vbxqa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y5tnh")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ikj4b")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_vbxqa")
+initial_state = NodePath("FlyingDinoIdle")
+
+[node name="FlyingDinoIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_y5tnh")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://pqquwts5rq17"
+
+[node name="FlyingDinoCharge" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_ikj4b")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://bde4jyvrl64fd"
+
+[node name="FlyingDinoDead" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_5e5ng")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://bfno11y1c3dc0"

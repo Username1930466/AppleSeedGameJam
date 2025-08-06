@@ -24,6 +24,8 @@ func Physics_Update(_delta:float):
 		Transitioned.emit(self,"NormalDinoCharge")
 	else:
 		enemy.velocity = move_direction * move_speed
+	if enemy.health <= 0:
+		Transitioned.emit(self,"NormalDinoDead")
 
 func randomize_wander():
 	move_direction = Vector2(randf_range(-1,1),randf_range(-1,1)).normalized()

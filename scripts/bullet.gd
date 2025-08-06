@@ -3,7 +3,6 @@ extends RigidBody2D
 var damage: int
 var dir: Vector2
 var hit = false
-@onready var enemy : NormalDinoEnemy
 
 func _ready() -> void:
 	$Area2D.area_entered.connect(_on_area_2d_body_entered)
@@ -15,16 +14,12 @@ func _process(delta: float) -> void:
 	linear_velocity += dir
 
 func _on_area_2d_body_entered(body) -> void:
-	print(body)
 	if body is TileMapLayer and !hit:
 		hit = true
 		$BulletSprite.reparent(Global.game, true)
 		$AudioStreamPlayer2D.volume_db = damage / 2
 		$AudioStreamPlayer2D.playing = true
 		await get_tree().create_timer(0.11).timeout
-	var hit_enemy = body.get_parent()
-	if body is NormalDinoEnemy:
-		print("yes")
+	if body is NormalDinoEnemy || body is FlyingDinoEnemy:
 		body.health -= damage
-		print(body.health)
 	queue_free()
