@@ -1,0 +1,23 @@
+extends State
+class_name FlyingDinoIdle
+
+@export var enemy : FlyingDinoEnemy
+@export var move_speed := 40.0
+
+var player : CharacterBody2D
+
+func Enter():
+	player = get_tree().get_first_node_in_group("Player")
+
+
+func Update(_delta : float):
+	if enemy.health <= 0 :
+		Transitioned.emit(self,"FlyingDinoDead")
+
+func Physics_Update(delta : float):
+	var distance = player.global_position - enemy.global_position
+	
+	if distance.length() > 200:
+		enemy.velocity = distance.normalized() * move_speed * enemy.new_speed
+	else:
+		Transitioned.emit(self,"FlyingDinoCharge")

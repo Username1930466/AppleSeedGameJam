@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ck761pu6aihp1"]
+[gd_scene load_steps=12 format=4 uid="uid://ck761pu6aihp1"]
 
 [ext_resource type="Script" uid="uid://bucn6smj0guxs" path="res://scripts/game.gd" id="1_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://cxtiwxctd6gfu" path="res://scenes/player.tscn" id="2_78awf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cbqnukcc3vyho" path="res://textures/Image.png" id="6_aug50"]
 [ext_resource type="PackedScene" uid="uid://dlkvwy6b6b54e" path="res://scenes/Enemies/normal_dino.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://bsjbfgpf7ard3" path="res://CabalBold-78yP.ttf" id="7_kiw3p"]
+[ext_resource type="PackedScene" uid="uid://cr0f248x5bkhg" path="res://scenes/Enemies/flying_dino.tscn" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("3_s0nni")
@@ -274,6 +275,9 @@ process_mode = 1
 
 [node name="NormalDino" parent="Enemies" instance=ExtResource("6_p57ef")]
 position = Vector2(117, 198)
+
+[node name="FlyingDino" parent="Enemies" instance=ExtResource("9_0tnpc")]
+position = Vector2(-557, 222)
 
 [connection signal="pressed" from="UI/PauseMenu/ResumeButton" to="UI/PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/SettingsButton" to="UI/PauseMenu" method="_on_settings_button_pressed"]

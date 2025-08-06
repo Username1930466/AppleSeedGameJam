@@ -1,13 +1,15 @@
 extends CharacterBody2D
-class_name NormalDinoEnemy
+class_name FlyingDinoEnemy
 
+var new_speed = randf_range(0.5,1)
+var health = 50
 
-var health = 100
+func _ready():
+	pass
 
 func _physics_process(delta):
 	move_and_slide()
 	set_animation()
-
 
 func set_animation():
 	if health > 0 :

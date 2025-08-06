@@ -3,7 +3,6 @@ extends RigidBody2D
 var damage: int
 var dir: Vector2
 var hit = false
-@onready var enemy : NormalDinoEnemy
 
 func _ready() -> void:
 	$Area2D.area_entered.connect(_on_area_2d_body_entered)
@@ -24,10 +23,8 @@ func _on_area_2d_body_entered(body) -> void:
 		$AudioStreamPlayer2D.playing = true
 		await get_tree().create_timer(0.11).timeout
 	var hit_enemy = body.get_parent()
-	if body is NormalDinoEnemy:
+	if body is NormalDinoEnemy or body is FlyingDinoEnemy:
 		$BulletSprite/CPUParticles2D.emitting = true
 		$BulletSprite.reparent(body, true)
 		body.health -= damage
-		if body.health <= 0:
-			body.queue_free()
 	queue_free()
