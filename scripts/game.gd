@@ -27,3 +27,5 @@ func _process(delta: float) -> void:
 		$UI/AmmoBar.fill_mode = 5
 		$UI/AmmoLabel.text = str(gun.ammo)
 		$UI/AmmoBar.value = (float(gun.ammo) / Global.current_dino.gun.capacity) * 100
+	
+	$UI/MeleeCooldownBar.value = ($Player.get_node("Chomp").cooldown / Global.current_dino.melee_attack.cooldown) * 100

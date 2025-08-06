@@ -39,7 +39,7 @@ func _process(delta: float):
 	cooldown -= delta
 	
 	 # Shoot
-	if Input.is_action_pressed("shoot") and cooldown <= 0 and ammo > 0:
+	if Input.is_action_pressed("shoot") and cooldown <= 0 and ammo > 0 and !reloading:
 		cooldown = cooldown_length
 		ammo -= 1
 		var bullet = bullet_scene.instantiate()

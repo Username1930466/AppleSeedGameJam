@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xcwk7wkingv1"
-path="res://.godot/imported/dev_dino.png-9597c53ce6426209ee41431b4d60f3d6.ctex"
+uid="uid://du4ypr01jtsaa"
+path="res://.godot/imported/ChompEffect.png-0557fdb3324bb4c413fa31362c4b870d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/dev_dino.png"
-dest_files=["res://.godot/imported/dev_dino.png-9597c53ce6426209ee41431b4d60f3d6.ctex"]
+source_file="res://textures/ChompEffect.png"
+dest_files=["res://.godot/imported/ChompEffect.png-0557fdb3324bb4c413fa31362c4b870d.ctex"]
 
 [params]
 

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="MeleeAttack" load_steps=2 format=3 uid="uid://c8bxfk00pejuc"]
+[gd_resource type="Resource" script_class="MeleeAttack" load_steps=3 format=3 uid="uid://c8bxfk00pejuc"]
 
+[ext_resource type="PackedScene" uid="uid://ca527lqc5uh3p" path="res://scenes/melee_attacks/chomp.tscn" id="1_df6tl"]
 [ext_resource type="Script" uid="uid://csr3gsykiv2ol" path="res://resources/bases/melee_attack.gd" id="1_s5o8v"]
 
 [resource]
@@ -7,5 +8,5 @@ script = ExtResource("1_s5o8v")
 damage = 40.0
 defence_pierce = -0.1
 cooldown = 2.0
-type = "out_to_in"
+scene = ExtResource("1_df6tl")
 metadata/_custom_type_script = "uid://csr3gsykiv2ol"

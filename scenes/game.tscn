@@ -148,6 +148,28 @@ text = "25"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MeleeCooldownBar" type="TextureProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 392.0
+offset_right = 536.0
+offset_bottom = 520.0
+value = 67.0
+fill_mode = 4
+texture_under = ExtResource("6_aug50")
+texture_progress = ExtResource("6_aug50")
+tint_under = Color(0.1, 0.1, 0.1, 1)
+tint_progress = Color(0.9, 0.9, 0.9, 1)
+
+[node name="MeleeCooldownLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 369.0
+offset_right = 540.0
+offset_bottom = 392.0
+theme_override_fonts/font = ExtResource("7_kiw3p")
+text = "Melee Cooldown"
+
 [node name="PauseMenu" type="Node2D" parent="UI"]
 process_mode = 2
 visible = false
@@ -245,7 +267,7 @@ offset_top = 475.0
 offset_right = -279.0
 offset_bottom = 520.0
 theme_override_font_sizes/font_size = 32
-text = "WASD to move, LMB to shoot, R to reload, ESC to pause"
+text = "WASD to move, LMB to shoot, RMB to melee, R to reload, ESC to pause"
 
 [node name="Enemies" type="Node" parent="."]
 process_mode = 1
