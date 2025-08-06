@@ -27,15 +27,15 @@ func _process(delta: float) -> void:
 		chomp()
 
 func chomp():
-	$AudioStreamPlayer2D.playing = true
+	$ChompPlayer.playing = true
 	$CollisionShape2D.position = Vector2i(-20, -24)
 	$CollisionShape2D2.position = Vector2i(20, -24)
 	visible = true
-	$CollisionShape2D.disabled = false
-	$CollisionShape2D2.disabled = false
 	await get_tree().create_timer(0.5).timeout
 	$CollisionShape2D.position = Vector2i(-4, -24)
 	$CollisionShape2D2.position = Vector2i(4, -24)
+	$CollisionShape2D.disabled = false
+	$CollisionShape2D2.disabled = false
 	await get_tree().create_timer(0.5).timeout
 	$CollisionShape2D.disabled = true
 	$CollisionShape2D2.disabled = true
@@ -43,5 +43,8 @@ func chomp():
 	chomping = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is NormalDinoEnemy or FlyingDinoEnemy:
+	if body is NormalDinoEnemy or body is FlyingDinoEnemy:
 		body.health -= damage
+	if body is TileMapLayer:
+		$BrickPlayer.volume_db = damage / 2
+		$BrickPlayer.playing = true

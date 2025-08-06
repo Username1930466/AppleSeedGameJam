@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bsjbfgpf7ard3"
-path="res://.godot/imported/CabalBold-78yP.ttf-50201d830795a108ce4c8533bed40dd7.fontdata"
+path="res://.godot/imported/CabalBold.ttf-bc4e41e6b7d8d140b11f21537ac79566.fontdata"
 
 [deps]
 
-source_file="res://CabalBold-78yP.ttf"
-dest_files=["res://.godot/imported/CabalBold-78yP.ttf-50201d830795a108ce4c8533bed40dd7.fontdata"]
+source_file="res://CabalBold.ttf"
+dest_files=["res://.godot/imported/CabalBold.ttf-bc4e41e6b7d8d140b11f21537ac79566.fontdata"]
 
 [params]
 
