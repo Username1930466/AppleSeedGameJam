@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 		else:
 			Global.paused = true
 			$UI/PauseMenu.visible = true
-			$UI/PauseMenu.position = $Player.position
 			get_tree().paused = true
 	
 	$UI.position = $Player/Camera2D.global_position

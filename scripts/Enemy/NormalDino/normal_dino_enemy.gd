@@ -2,10 +2,7 @@ extends CharacterBody2D
 class_name NormalDinoEnemy
 
 
-var health = 50
-
-func _ready():
-	pass
+var health = 100
 
 func _physics_process(delta):
 	move_and_slide()
@@ -21,6 +18,3 @@ func set_animation():
 		$AnimatedSprite2D.flip_h = false
 	else:
 		$AnimatedSprite2D.flip_h = true
-
-func take_damage(amount):
-	print("Damage :" + amount)

@@ -10,21 +10,24 @@ func _ready() -> void:
 	rotation = dir.angle()
 	linear_velocity = dir * 1000
 	$CPUParticles2D.emitting = true
+	$CPUParticles2D.reparent(Global.game, true)
 
 func _process(delta: float) -> void:
 	linear_velocity += dir
 
 func _on_area_2d_body_entered(body) -> void:
-	print(body)
 	if body is TileMapLayer and !hit:
 		hit = true
+		$BulletSprite/CPUParticles2D.queue_free()
 		$BulletSprite.reparent(Global.game, true)
 		$AudioStreamPlayer2D.volume_db = damage / 2
 		$AudioStreamPlayer2D.playing = true
 		await get_tree().create_timer(0.11).timeout
 	var hit_enemy = body.get_parent()
 	if body is NormalDinoEnemy:
-		print("yes")
+		$BulletSprite/CPUParticles2D.emitting = true
+		$BulletSprite.reparent(body, true)
 		body.health -= damage
-		print(body.health)
+		if body.health <= 0:
+			body.queue_free()
 	queue_free()
