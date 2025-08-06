@@ -1,6 +1,6 @@
 extends Area2D
 
-var chomping = false
+var clawing = false
 var damage: float
 var defense_pierce: float
 var cooldown_length: float
@@ -13,34 +13,27 @@ func _ready() -> void:
 	cooldown_length = Global.current_dino.melee_attack.cooldown
 
 func _process(delta: float) -> void:
-	 # Rotate teeth
+	 # Rotate claws
 	var mouse_pos = get_global_mouse_position()
 	var dir = (mouse_pos - global_position).normalized()
-	rotation = dir.angle() + deg_to_rad(90)
+	rotation = dir.angle() + deg_to_rad(133.3)
 	
 	cooldown -= delta
 	
-	 # Chomp
-	if Input.is_action_just_pressed("melee") and !chomping and cooldown <= 0:
+	 # Claw
+	if Input.is_action_just_pressed("melee") and !clawing and cooldown <= 0:
 		cooldown = cooldown_length
-		chomping = true
-		chomp()
+		clawing = true
+		claw()
 
-func chomp():
+func claw():
 	$AudioStreamPlayer2D.playing = true
-	$CollisionShape2D.position = Vector2i(-20, -24)
-	$CollisionShape2D2.position = Vector2i(20, -24)
 	visible = true
-	$CollisionShape2D.disabled = false
-	$CollisionShape2D2.disabled = false
+	$CollisionPolygon2D.disabled = false
 	await get_tree().create_timer(0.5).timeout
-	$CollisionShape2D.position = Vector2i(-4, -24)
-	$CollisionShape2D2.position = Vector2i(4, -24)
-	await get_tree().create_timer(0.5).timeout
-	$CollisionShape2D.disabled = true
-	$CollisionShape2D2.disabled = true
+	$CollisionPolygon2D.disabled = true
 	visible = false
-	chomping = false
+	clawing = false
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is NormalDinoEnemy or FlyingDinoEnemy:
