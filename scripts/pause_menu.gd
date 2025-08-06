@@ -15,8 +15,6 @@ func _on_menu_button_pressed() -> void:
 	unpause()
 	get_tree().change_scene_to_file(menu_scene)
 
-
-
 func _on_settings_button_pressed() -> void:
 	if settings:
 		settings = false

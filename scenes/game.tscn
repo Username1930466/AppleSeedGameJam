@@ -127,6 +127,7 @@ offset_top = 136.0
 offset_right = 684.0
 offset_bottom = 264.0
 scale = Vector2(3, 3)
+value = 67.0
 fill_mode = 5
 texture_under = ExtResource("6_aug50")
 texture_progress = ExtResource("6_aug50")
@@ -135,11 +136,11 @@ tint_progress = Color(0.9, 0.9, 0.9, 1)
 
 [node name="AmmoLabel" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 675.0
+offset_left = 573.0
 offset_top = 241.0
-offset_right = 821.0
+offset_right = 923.0
 offset_bottom = 416.0
-pivot_offset = Vector2(73, 87)
+pivot_offset = Vector2(175, 87)
 theme_override_fonts/font = ExtResource("7_kiw3p")
 theme_override_font_sizes/font_size = 128
 text = "25"

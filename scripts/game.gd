@@ -16,7 +16,15 @@ func _process(delta: float) -> void:
 			$UI/PauseMenu.visible = true
 			$UI/PauseMenu.position = $Player.position
 			get_tree().paused = true
+	
 	$UI.position = $Player/Camera2D.global_position
 	$UI/HealthBar.value = $Player.health
-	$UI/AmmoBar.value = (float($Player.get_node("Gun").ammo) / Global.current_dino.gun.capacity) * 100
-	$UI/AmmoLabel.text = str($Player.get_node("Gun").ammo)
+	var gun = $Player.get_node("Gun")
+	if gun.reloading:
+		$UI/AmmoBar.fill_mode = 4
+		$UI/AmmoLabel.text = ". . ."
+		$UI/AmmoBar.value = (gun.reload_cooldown / gun.reload_time) * 100
+	else:
+		$UI/AmmoBar.fill_mode = 5
+		$UI/AmmoLabel.text = str(gun.ammo)
+		$UI/AmmoBar.value = (float(gun.ammo) / Global.current_dino.gun.capacity) * 100

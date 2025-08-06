@@ -13,6 +13,8 @@ var bullet_scene = preload("res://scenes/bullet.tscn")
 var dir: Vector2
 var ammo: int
 var cooldown = 0.0
+var reload_cooldown = 0.0
+var reloading = false
 
 func _ready() -> void:
 	min_damage = Global.current_dino.gun.min_damage
@@ -49,3 +51,14 @@ func _process(delta: float):
 			Global.cam.screenshake(bullet.damage, 0.01, cooldown_length * 6)
 		$Output/AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
 		$Output/AudioStreamPlayer2D.playing = true
+	
+	 # Reload
+	if Input.is_action_just_pressed("reload"):
+		if !reloading:
+			reloading = true
+			reload_cooldown = reload_time
+	
+	reload_cooldown -= delta
+	if reload_cooldown <= 0 and reloading:
+		reloading = false
+		ammo = capacity
