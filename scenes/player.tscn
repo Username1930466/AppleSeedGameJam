@@ -35,4 +35,3 @@ position = Vector2(-128, 32)
 scale = Vector2(1, 0.5)
 stream = ExtResource("4_dqkch")
 volume_db = -10.0
-pitch_scale = 0.75

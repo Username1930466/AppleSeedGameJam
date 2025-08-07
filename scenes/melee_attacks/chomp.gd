@@ -45,6 +45,7 @@ func chomp():
 func _on_body_entered(body: Node2D) -> void:
 	if body is NormalDinoEnemy or body is FlyingDinoEnemy:
 		body.health -= damage
+		$FleshPlayer.playing = true
 	if body is TileMapLayer:
 		$BrickPlayer.volume_db = damage / 2
 		$BrickPlayer.playing = true

@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		claw()
 
 func claw():
-	$AudioStreamPlayer2D.playing = true
+	$ClawPlayer.playing = true
 	visible = true
 	$CollisionPolygon2D.disabled = false
 	await get_tree().create_timer(0.5).timeout
@@ -36,5 +36,9 @@ func claw():
 	clawing = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is NormalDinoEnemy or FlyingDinoEnemy:
+	if body is NormalDinoEnemy or body is FlyingDinoEnemy:
 		body.health -= damage
+		$FleshPlayer.playing = true
+	if body is TileMapLayer:
+		$BrickPlayer.volume_db = damage / 2
+		$BrickPlayer.playing = true
