@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://clbnidmh6erkh"]
 
-[ext_resource type="Texture2D" uid="uid://c6pyy414cvk4y" path="res://textures/ClawEffect.png" id="1_a0le0"]
+[ext_resource type="Texture2D" uid="uid://c6pyy414cvk4y" path="res://textures/attacks/ClawEffect.png" id="1_a0le0"]
 [ext_resource type="Script" uid="uid://dhu4ei5jjf0fg" path="res://scenes/melee_attacks/claw.gd" id="1_l148s"]
 [ext_resource type="AudioStream" uid="uid://cwt377je7byv1" path="res://sounds/claw.mp3" id="3_8g4xg"]
 [ext_resource type="AudioStream" uid="uid://cawjj0ruhnuq0" path="res://sounds/bullet_brick.mp3" id="4_axxgy"]

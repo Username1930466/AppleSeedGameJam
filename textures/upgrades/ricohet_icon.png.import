@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6pyy414cvk4y"
-path="res://.godot/imported/ClawEffect.png-abb28f3323d83875d424398149a247ff.ctex"
+uid="uid://ssj4dqyu46rx"
+path="res://.godot/imported/ricohet_icon.png-da22624b1ab272d748d4700f70862ca7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/ClawEffect.png"
-dest_files=["res://.godot/imported/ClawEffect.png-abb28f3323d83875d424398149a247ff.ctex"]
+source_file="res://textures/upgrades/ricohet_icon.png"
+dest_files=["res://.godot/imported/ricohet_icon.png-da22624b1ab272d748d4700f70862ca7.ctex"]
 
 [params]
 

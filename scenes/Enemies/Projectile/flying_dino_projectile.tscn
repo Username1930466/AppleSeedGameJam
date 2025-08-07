@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dojoyy81n5e3b"]
 
-[ext_resource type="Texture2D" uid="uid://cjmabtmfotodj" path="res://textures/9mm.png" id="1_jpign"]
+[ext_resource type="Texture2D" uid="uid://cjmabtmfotodj" path="res://textures/attacks/9mm.png" id="1_jpign"]
 [ext_resource type="Script" uid="uid://crt658poni6c3" path="res://scripts/Enemy/FlyingDino/Projectile/flying_dino_projectile.gd" id="1_o7mhk"]
 [ext_resource type="AudioStream" uid="uid://cawjj0ruhnuq0" path="res://sounds/bullet_brick.mp3" id="3_wfq6f"]
 

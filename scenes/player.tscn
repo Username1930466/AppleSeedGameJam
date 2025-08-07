@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://btun4lqyn5wbj" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://dt80ip10hyr8q" path="res://textures/t_rex.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dt80ip10hyr8q" path="res://textures/dinos/t_rex.png" id="2_qlg0r"]
 [ext_resource type="Script" uid="uid://dwn0m7wsc45h4" path="res://scripts/gun.gd" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://dx56jjoxl4ho5" path="res://sounds/player_gunshot.mp3" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://pnlxogty5tst" path="res://sounds/music/mobosaurs L1 2nd pass (loopable).mp3" id="6_tuyoq"]
@@ -38,5 +38,6 @@ stream = ExtResource("4_dqkch")
 volume_db = -10.0
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("6_tuyoq")
 autoplay = true

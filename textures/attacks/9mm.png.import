@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckluyy7c3hthp"
-path="res://.godot/imported/9mm_bullet.png-6fbda0edce0d94ff6de72f672987ee46.ctex"
+uid="uid://cjmabtmfotodj"
+path="res://.godot/imported/9mm.png-c7098a5b35ddcc84d24ede7a3a9a85ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/9mm_bullet.png"
-dest_files=["res://.godot/imported/9mm_bullet.png-6fbda0edce0d94ff6de72f672987ee46.ctex"]
+source_file="res://textures/attacks/9mm.png"
+dest_files=["res://.godot/imported/9mm.png-c7098a5b35ddcc84d24ede7a3a9a85ee.ctex"]
 
 [params]
 

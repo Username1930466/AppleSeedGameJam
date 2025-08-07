@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ca527lqc5uh3p"]
 
-[ext_resource type="Texture2D" uid="uid://du4ypr01jtsaa" path="res://textures/ChompEffect.png" id="1_200or"]
+[ext_resource type="Texture2D" uid="uid://du4ypr01jtsaa" path="res://textures/attacks/ChompEffect.png" id="1_200or"]
 [ext_resource type="Script" uid="uid://b7qiqrrxkh0uu" path="res://scenes/melee_attacks/chomp.gd" id="1_kwn84"]
-[ext_resource type="Texture2D" uid="uid://dffdn4wcix3wi" path="res://textures/ChompEffect2.png" id="2_kwn84"]
+[ext_resource type="Texture2D" uid="uid://dffdn4wcix3wi" path="res://textures/attacks/ChompEffect2.png" id="2_kwn84"]
 [ext_resource type="AudioStream" uid="uid://nygeg5ekve20" path="res://sounds/chomp.mp3" id="4_fonks"]
 [ext_resource type="AudioStream" uid="uid://cawjj0ruhnuq0" path="res://sounds/bullet_brick.mp3" id="5_6ebbl"]
 [ext_resource type="AudioStream" uid="uid://dbmybv5s2tr2k" path="res://sounds/flesh_hit.mp3" id="6_6v3is"]

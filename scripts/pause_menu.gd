@@ -19,6 +19,7 @@ func unpause():
 	get_tree().paused = false
 
 func _on_menu_button_pressed() -> void:
+	$"../UpgradeMenu".upgrade_menu = false
 	unpause()
 	get_tree().change_scene_to_file(menu_scene)
 

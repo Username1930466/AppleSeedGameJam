@@ -1,9 +1,9 @@
 extends CharacterBody2D
 class_name TurretDinoEnemy
 
-
 var new_speed = randf_range(0.5,1)
 var health = 50
+var exp = 10
 
 func _ready():
 	pass

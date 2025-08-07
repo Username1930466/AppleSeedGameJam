@@ -29,3 +29,4 @@ func _process(delta: float) -> void:
 		$UI/AmmoBar.value = (float(gun.ammo) / Global.current_dino.gun.capacity) * 100
 	
 	$UI/MeleeCooldownBar.value = ($Player.get_node("Melee").cooldown / Global.current_dino.melee_attack.cooldown) * 100
+	$UI/ExpBar.value = (float($Player.exp) / float($Player.exp_needed)) * 100

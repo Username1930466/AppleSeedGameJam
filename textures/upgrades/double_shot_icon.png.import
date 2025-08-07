@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du4ypr01jtsaa"
-path="res://.godot/imported/ChompEffect.png-0557fdb3324bb4c413fa31362c4b870d.ctex"
+uid="uid://cjt1eqewt7rai"
+path="res://.godot/imported/double_shot_icon.png-23c1a536610e8ba313713a396051043c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/ChompEffect.png"
-dest_files=["res://.godot/imported/ChompEffect.png-0557fdb3324bb4c413fa31362c4b870d.ctex"]
+source_file="res://textures/upgrades/double_shot_icon.png"
+dest_files=["res://.godot/imported/double_shot_icon.png-23c1a536610e8ba313713a396051043c.ctex"]
 
 [params]
 

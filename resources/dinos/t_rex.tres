@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://c5eg63vx407ja" path="res://resources/guns/pistol.tres" id="1_8sm0j"]
 [ext_resource type="Script" uid="uid://bcdxor7mnj062" path="res://resources/bases/dino.gd" id="1_yah4a"]
 [ext_resource type="Resource" uid="uid://c8bxfk00pejuc" path="res://resources/melee_attacks/chomp.tres" id="2_qd1pj"]
-[ext_resource type="Texture2D" uid="uid://dt80ip10hyr8q" path="res://textures/t_rex.png" id="4_qd1pj"]
+[ext_resource type="Texture2D" uid="uid://dt80ip10hyr8q" path="res://textures/dinos/t_rex.png" id="4_qd1pj"]
 
 [resource]
 script = ExtResource("1_yah4a")

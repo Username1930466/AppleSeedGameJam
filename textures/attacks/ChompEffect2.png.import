@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dffdn4wcix3wi"
-path="res://.godot/imported/ChompEffect2.png-e63bef89472bd67bf096356888ff8c85.ctex"
+path="res://.godot/imported/ChompEffect2.png-b6852cec85ab6dcdfb3458b0e930ea1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/ChompEffect2.png"
-dest_files=["res://.godot/imported/ChompEffect2.png-e63bef89472bd67bf096356888ff8c85.ctex"]
+source_file="res://textures/attacks/ChompEffect2.png"
+dest_files=["res://.godot/imported/ChompEffect2.png-b6852cec85ab6dcdfb3458b0e930ea1e.ctex"]
 
 [params]
 

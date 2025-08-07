@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjmabtmfotodj"
-path="res://.godot/imported/9mm.png-b8ee48390f8c3f2ff653cb3983525189.ctex"
+uid="uid://b138entml4xko"
+path="res://.godot/imported/pierce_icon.png-99761684b6ba7006b6fe55b1197ca219.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/9mm.png"
-dest_files=["res://.godot/imported/9mm.png-b8ee48390f8c3f2ff653cb3983525189.ctex"]
+source_file="res://textures/upgrades/pierce_icon.png"
+dest_files=["res://.godot/imported/pierce_icon.png-99761684b6ba7006b6fe55b1197ca219.ctex"]
 
 [params]
 

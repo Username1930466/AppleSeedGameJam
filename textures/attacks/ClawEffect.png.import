@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k7cxx5jmbi25"
-path="res://.godot/imported/raptor.png-f815007ae443de0e66569a5128b00882.ctex"
+uid="uid://c6pyy414cvk4y"
+path="res://.godot/imported/ClawEffect.png-8070591b1ede5ba6e980502f50639c9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/raptor.png"
-dest_files=["res://.godot/imported/raptor.png-f815007ae443de0e66569a5128b00882.ctex"]
+source_file="res://textures/attacks/ClawEffect.png"
+dest_files=["res://.godot/imported/ClawEffect.png-8070591b1ede5ba6e980502f50639c9a.ctex"]
 
 [params]
 
