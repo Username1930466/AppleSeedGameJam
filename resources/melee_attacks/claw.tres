@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="MeleeAttack" load_steps=2 format=3 uid="uid://cwxsj6rlyx3ln"]
+[gd_resource type="Resource" script_class="MeleeAttack" load_steps=3 format=3 uid="uid://cwxsj6rlyx3ln"]
 
 [ext_resource type="Script" uid="uid://csr3gsykiv2ol" path="res://resources/bases/melee_attack.gd" id="1_a7mtq"]
+[ext_resource type="PackedScene" uid="uid://clbnidmh6erkh" path="res://scenes/melee_attacks/claw.tscn" id="1_cmbpu"]
 
 [resource]
 script = ExtResource("1_a7mtq")
 damage = 25.0
 defence_pierce = 0.0
 cooldown = 1.0
-type = "single"
+scene = ExtResource("1_cmbpu")
 metadata/_custom_type_script = "uid://csr3gsykiv2ol"

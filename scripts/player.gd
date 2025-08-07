@@ -11,6 +11,9 @@ func _ready() -> void:
 	defense = Global.current_dino.defense
 	max_health = Global.current_dino.max_health
 	health = max_health
+	var melee = Global.current_dino.melee_attack.scene.instantiate()
+	add_child(melee)
+	melee.name = "Melee"
 
 func _physics_process(delta: float) -> void:
 	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
