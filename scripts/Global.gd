@@ -10,3 +10,4 @@ var available_dinos = {0: preload("res://resources/dinos/t_rex.tres"), 1: preloa
 
  # Settings
 var screenshake = true
+var blood = true

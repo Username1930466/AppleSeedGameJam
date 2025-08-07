@@ -4,6 +4,10 @@ var game_scene = preload("res://scenes/Game.tscn")
 var settings = false
 var selected_dino = 0
 
+func _ready() -> void:
+	$ScreenshakeToggle.button_pressed = Global.screenshake
+	$BloodToggle.button_pressed = Global.blood
+
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(game_scene)
 	Global.current_dino = Global.available_dinos[selected_dino]
@@ -15,9 +19,11 @@ func _on_settings_button_pressed() -> void:
 	if settings:
 		settings = false
 		$ScreenshakeToggle.visible = false
+		$BloodToggle.visible = false
 	else:
 		settings = true
 		$ScreenshakeToggle.visible = true
+		$BloodToggle.visible = true
 
 func _on_screenshake_toggle_pressed() -> void:
 	Global.screenshake = $ScreenshakeToggle.button_pressed
@@ -38,3 +44,6 @@ func display_selected():
 	var selected_stats = Global.available_dinos[selected_dino]
 	$DinoSprite.texture = selected_stats.texture
 	$DinoNameLabel.text = selected_stats.name
+
+func _on_blood_toggle_pressed() -> void:
+	Global.blood = $BloodToggle.button_pressed

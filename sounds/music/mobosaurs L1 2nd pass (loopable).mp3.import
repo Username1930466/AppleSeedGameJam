@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pnlxogty5tst"
+path="res://.godot/imported/mobosaurs L1 2nd pass (loopable).mp3-97aa477007d5d6eaad81d6aa977acf7b.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/mobosaurs L1 2nd pass (loopable).mp3"
+dest_files=["res://.godot/imported/mobosaurs L1 2nd pass (loopable).mp3-97aa477007d5d6eaad81d6aa977acf7b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

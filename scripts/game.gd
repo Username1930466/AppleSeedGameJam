@@ -3,7 +3,7 @@ extends Node2D
 func _ready() -> void:
 	Global.game = self
 	Global.player = $Player
-	Global.cam = $Player/Camera2D
+	Global.cam = $Camera2D
 	$UI/HealthBar.max_value = $Player.max_health
 	$UI/HealthBar.value = $Player.health
 
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 			$UI/PauseMenu.visible = true
 			get_tree().paused = true
 	
-	$UI.position = $Player/Camera2D.global_position
+	$UI.position = $Camera2D.global_position
 	$UI/HealthBar.value = $Player.health
 	var gun = $Player.get_node("Gun")
 	if gun.reloading:

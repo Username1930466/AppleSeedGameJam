@@ -1,6 +1,6 @@
 extends Area2D
 
-var clawing = false
+var attacking = false
 var damage: float
 var defense_pierce: float
 var cooldown_length: float
@@ -14,16 +14,17 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	 # Rotate claws
-	var mouse_pos = get_global_mouse_position()
-	var dir = (mouse_pos - global_position).normalized()
-	rotation = dir.angle() + deg_to_rad(133.3)
+	if !attacking:
+		var mouse_pos = get_global_mouse_position()
+		var dir = (mouse_pos - global_position).normalized()
+		rotation = dir.angle() + deg_to_rad(133.3)
 	
 	cooldown -= delta
 	
 	 # Claw
-	if Input.is_action_just_pressed("melee") and !clawing and cooldown <= 0:
+	if Input.is_action_just_pressed("melee") and !attacking and cooldown <= 0:
 		cooldown = cooldown_length
-		clawing = true
+		attacking = true
 		claw()
 
 func claw():
@@ -33,7 +34,7 @@ func claw():
 	await get_tree().create_timer(0.5).timeout
 	$CollisionPolygon2D.disabled = true
 	visible = false
-	clawing = false
+	attacking = false
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is NormalDinoEnemy or body is FlyingDinoEnemy:

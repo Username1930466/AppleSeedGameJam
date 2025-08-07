@@ -28,7 +28,8 @@ func _on_area_2d_body_entered(body) -> void:
 	var hit_enemy = body.get_parent()
 	if body is NormalDinoEnemy or body is FlyingDinoEnemy:
 		$Area2D.queue_free()
-		$BulletSprite/CPUParticles2D.emitting = true
+		if Global.blood:
+			$BulletSprite/CPUParticles2D.emitting = true
 		$BulletSprite.reparent(body, true)
 		body.health -= damage
 		$AudioStreamPlayer2D.stream = flesh_hit
