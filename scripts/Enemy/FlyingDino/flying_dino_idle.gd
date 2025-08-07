@@ -22,6 +22,6 @@ func Physics_Update(delta : float):
 	var distance = player.global_position - enemy.global_position
 	
 	if distance.length() > radius:
-		enemy.velocity = distance.normalized() * move_speed * enemy.new_speed
+		enemy.velocity = distance.normalized() * move_speed
 	else:
 		Transitioned.emit(self,"FlyingDinoPreparing")

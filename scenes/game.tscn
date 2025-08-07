@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://ck761pu6aihp1"]
+[gd_scene load_steps=14 format=4 uid="uid://ck761pu6aihp1"]
 
 [ext_resource type="Script" uid="uid://bucn6smj0guxs" path="res://scripts/game.gd" id="1_cpr0p"]
 [ext_resource type="PackedScene" uid="uid://cxtiwxctd6gfu" path="res://scenes/player.tscn" id="2_78awf"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dlkvwy6b6b54e" path="res://scenes/Enemies/normal_dino.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://bsjbfgpf7ard3" path="res://CabalBold.ttf" id="7_kiw3p"]
 [ext_resource type="PackedScene" uid="uid://cr0f248x5bkhg" path="res://scenes/Enemies/flying_dino.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://blfwl5ksw8nr" path="res://scenes/Enemies/turret_dino.tscn" id="10_vtaks"]
+[ext_resource type="Script" uid="uid://0im7jdiylwef" path="res://scripts/Enemy/enemy_wave.gd" id="11_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qy1jj"]
 texture = ExtResource("4_g4kob")
@@ -247,6 +249,17 @@ position = Vector2(-401, 221)
 
 [node name="FlyingDino" parent="Enemies" instance=ExtResource("9_0tnpc")]
 position = Vector2(-557, 222)
+
+[node name="TurretDino" parent="Enemies" instance=ExtResource("10_vtaks")]
+position = Vector2(-703, 837)
+
+[node name="EnemyWaves" type="Node" parent="."]
+script = ExtResource("11_kvpfn")
+enemy_list = Dictionary[String, PackedScene]({
+"FlyingDino": ExtResource("9_0tnpc"),
+"NormalDino": ExtResource("6_p57ef"),
+"TurretDino": ExtResource("10_vtaks")
+})
 
 [connection signal="pressed" from="UI/PauseMenu/ResumeButton" to="UI/PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/SettingsButton" to="UI/PauseMenu" method="_on_settings_button_pressed"]

@@ -3,6 +3,8 @@ extends RigidBody2D
 var brick_hit = preload("res://sounds/bullet_brick.mp3")
 var flesh_hit = preload("res://sounds/flesh_hit.mp3")
 
+
+var acceptable_enemies = ["NormalDino","FlyingDino","TurretDino"]
 var damage: int
 var bounces = 0
 var pierces = 0
@@ -34,18 +36,20 @@ func _on_area_2d_body_entered(body) -> void:
 			$AudioStreamPlayer2D.playing = true
 			await get_tree().create_timer(0.11).timeout
 			queue_free()
-	if body is NormalDinoEnemy or body is FlyingDinoEnemy:
-		if pierces > 0:
-			pierces -= 1
-			body.health -= damage
-			$AudioStreamPlayer2D.stream = flesh_hit
-			$AudioStreamPlayer2D.playing = true
-		else:
-			$Area2D.queue_free()
-			if $BulletSprite:
-				if Global.blood:
-					$BulletSprite/CPUParticles2D.emitting = true
-				$BulletSprite.reparent(body, true)
+	else:
+		var enemy = body.get_groups()
+		if enemy[0] in acceptable_enemies:
+			if pierces > 0:
+				pierces -= 1
+				body.health -= damage
+				$AudioStreamPlayer2D.stream = flesh_hit
+				$AudioStreamPlayer2D.playing = true
+			else:
+				$Area2D.queue_free()
+				if $BulletSprite:
+					if Global.blood:
+						$BulletSprite/CPUParticles2D.emitting = true
+					$BulletSprite.reparent(body, true)
 			body.health -= damage
 			$AudioStreamPlayer2D.stream = flesh_hit
 			$AudioStreamPlayer2D.playing = true
