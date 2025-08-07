@@ -14,7 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	linear_velocity += dir
 
-func _on_area_2d_body_entered(body) -> void:
+func _on_area_2d_body_entered(body:Node2D) -> void:
 	if body is TileMapLayer and !hit:
 		hit = true
 		$BulletSprite/CPUParticles2D.queue_free()
@@ -22,9 +22,17 @@ func _on_area_2d_body_entered(body) -> void:
 		$AudioStreamPlayer2D.volume_db = damage / 2
 		$AudioStreamPlayer2D.playing = true
 		await get_tree().create_timer(0.11).timeout
-	var hit_enemy = body.get_parent()
-	if body is NormalDinoEnemy or body is FlyingDinoEnemy:
-		$BulletSprite/CPUParticles2D.emitting = true
-		$BulletSprite.reparent(body, true)
-		body.health -= damage
-	queue_free()
+		queue_free()
+	else:
+		var enemy = body.get_groups()
+		match enemy[0]:
+			"NormalDino":
+				$BulletSprite/CPUParticles2D.emitting = true
+				$BulletSprite.reparent(body, true)
+				body.health -= damage
+				queue_free()
+			"FlyingDino":
+				$BulletSprite/CPUParticles2D.emitting = true
+				$BulletSprite.reparent(body, true)
+				body.health -= damage
+				queue_free()

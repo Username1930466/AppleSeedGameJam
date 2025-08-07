@@ -42,7 +42,9 @@ func chomp():
 	chomping = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is NormalDinoEnemy:
-		body.health -= damage
-		if body.health <= 0:
-			body.queue_free()
+	var enemy = body.get_groups()
+	match enemy[0]:
+		"NormalDino":
+			body.health -= damage
+		"FlyingDino":
+			pass

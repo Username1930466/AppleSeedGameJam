@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dojoyy81n5e3b"]
+
+[ext_resource type="Texture2D" uid="uid://cjmabtmfotodj" path="res://textures/9mm.png" id="1_jpign"]
+[ext_resource type="Script" uid="uid://crt658poni6c3" path="res://scripts/Enemy/FlyingDino/Projectile/flying_dino_projectile.gd" id="1_o7mhk"]
+[ext_resource type="AudioStream" uid="uid://cawjj0ruhnuq0" path="res://sounds/bullet_brick.mp3" id="3_wfq6f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7mhk"]
+size = Vector2(6, 16)
+
+[node name="FlyingDinoProjectile" type="RigidBody2D"]
+collision_layer = 31
+collision_mask = 31
+gravity_scale = 0.0
+script = ExtResource("1_o7mhk")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_o7mhk")
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_jpign")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(21, 0)
+stream = ExtResource("3_wfq6f")
+volume_db = 10.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

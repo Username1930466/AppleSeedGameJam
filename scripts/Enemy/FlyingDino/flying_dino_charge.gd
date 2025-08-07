@@ -3,14 +3,22 @@ class_name FlyingDinoCharge
 
 @export var enemy : FlyingDinoEnemy
 
+var time := 0.0
+var move_speed := 2.0
+var radius := 500.0
+var cooldown := 300.0
+var current_cooldown = cooldown
 
-var move_speed := 40.0
+var bullet = preload("res://scenes/Enemies/Projectile/flying_dino_projectile.tscn")
 
+@onready var sprite = $"../../AnimatedSprite2D"
 var player : CharacterBody2D
+
 
 
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
+
 
 
 func Update(delta):
@@ -19,5 +27,20 @@ func Update(delta):
 
 
 func Physics_Update(delta):
+	time += fmod(delta,PI * 2)
 	var distance = player.global_position - enemy.global_position
-	enemy.velocity = distance.normalized() * move_speed * (enemy.new_speed * 1.33)
+	sprite.look_at(player.global_position)
+	enemy.global_position = Vector2(
+		sin(time * move_speed) * radius,
+		cos(time * move_speed) * radius
+		) + player.global_position
+	current_cooldown -= 5
+	if current_cooldown <= 0:
+		create_bullet(distance.normalized())
+		current_cooldown = cooldown
+
+func create_bullet(dir):
+	var new_bullet = bullet.instantiate()
+	new_bullet.dir = dir
+	new_bullet.global_position = enemy.global_position
+	Global.game.add_child(new_bullet)

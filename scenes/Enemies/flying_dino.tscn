@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr0f248x5bkhg"]
+[gd_scene load_steps=10 format=3 uid="uid://cr0f248x5bkhg"]
 
 [ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="1_6ygg4"]
 [ext_resource type="Script" uid="uid://nyhe12j6rbx" path="res://scripts/Enemy/FlyingDino/flying_dino_enemy.gd" id="1_vbxqa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://pqquwts5rq17" path="res://scripts/Enemy/FlyingDino/flying_dino_idle.gd" id="4_y5tnh"]
 [ext_resource type="Script" uid="uid://bde4jyvrl64fd" path="res://scripts/Enemy/FlyingDino/flying_dino_charge.gd" id="5_ikj4b"]
 [ext_resource type="Script" uid="uid://bfno11y1c3dc0" path="res://scripts/Enemy/FlyingDino/flying_dino_dead.gd" id="6_5e5ng"]
+[ext_resource type="Script" uid="uid://d1dxmemk40n8c" path="res://scripts/Enemy/FlyingDino/flying_dino_preparing.gd" id="7_dcr2x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y5tnh"]
 animations = [{
@@ -26,9 +27,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikj4b"]
 radius = 53.0
 
-[node name="FlyingDino" type="CharacterBody2D"]
-collision_layer = 6
-collision_mask = 22
+[node name="FlyingDino" type="CharacterBody2D" groups=["FlyingDino"]]
+collision_layer = 4
+collision_mask = 19
 script = ExtResource("1_vbxqa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -56,3 +57,8 @@ metadata/_custom_type_script = "uid://bde4jyvrl64fd"
 script = ExtResource("6_5e5ng")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://bfno11y1c3dc0"
+
+[node name="FlyingDinoPreparing" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("7_dcr2x")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://d1dxmemk40n8c"

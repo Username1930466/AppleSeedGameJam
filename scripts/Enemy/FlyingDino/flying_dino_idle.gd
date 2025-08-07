@@ -2,9 +2,13 @@ extends State
 class_name FlyingDinoIdle
 
 @export var enemy : FlyingDinoEnemy
-@export var move_speed := 40.0
-
 var player : CharacterBody2D
+
+
+var radius := 500
+var move_speed := 200.0
+
+
 
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
@@ -17,7 +21,7 @@ func Update(_delta : float):
 func Physics_Update(delta : float):
 	var distance = player.global_position - enemy.global_position
 	
-	if distance.length() > 200:
+	if distance.length() > radius:
 		enemy.velocity = distance.normalized() * move_speed * enemy.new_speed
 	else:
-		Transitioned.emit(self,"FlyingDinoCharge")
+		Transitioned.emit(self,"FlyingDinoPreparing")
