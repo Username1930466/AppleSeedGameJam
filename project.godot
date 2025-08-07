@@ -71,7 +71,7 @@ melee={
 [layer_names]
 
 2d_physics/layer_1="Player Hurtbox"
-2d_physics/layer_2="Player Hitbox"
-2d_physics/layer_3="Enemy Hurtbox"
-2d_physics/layer_4="Enemy Hitbox"
+2d_physics/layer_2="Player Bullet Hitbox"
+2d_physics/layer_3="Enemy HitBox"
+2d_physics/layer_4="Enemy Bullet Hitbox"
 2d_physics/layer_5="Walls"

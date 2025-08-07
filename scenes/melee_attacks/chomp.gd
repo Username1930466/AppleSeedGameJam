@@ -47,9 +47,18 @@ func chomp():
 	attacking = false
 
 func _on_body_entered(body: Node2D) -> void:
+<<<<<<< HEAD
+	var enemy = body.get_groups()
+	match enemy[0]:
+		"NormalDino":
+			body.health -= damage
+		"FlyingDino":
+			pass
+=======
 	if body is NormalDinoEnemy or body is FlyingDinoEnemy:
 		body.health -= damage
 		$FleshPlayer.playing = true
 	if body is TileMapLayer:
 		$BrickPlayer.volume_db = damage / 2
 		$BrickPlayer.playing = true
+>>>>>>> 6565a6a0033a83a30c6db809bfcd58f7932caa37
