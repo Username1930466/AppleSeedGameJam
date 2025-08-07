@@ -3,14 +3,16 @@ extends Node2D
 var game_scene = preload("res://scenes/Game.tscn")
 var settings = false
 var selected_dino = 0
+var empty_upgrades = {"Multishot": 0, "Double Shot": 0, "Ricohet": 0, "Pierce": 0, "Faster Reload": 0}
 
 func _ready() -> void:
 	$ScreenshakeToggle.button_pressed = Global.screenshake
 	$BloodToggle.button_pressed = Global.blood
 
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_packed(game_scene)
+	Global.upgrades = empty_upgrades
 	Global.current_dino = Global.available_dinos[selected_dino]
+	get_tree().change_scene_to_packed(game_scene)
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
