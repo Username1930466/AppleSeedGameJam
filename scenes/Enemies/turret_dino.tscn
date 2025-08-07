@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://blfwl5ksw8nr"]
+[gd_scene load_steps=9 format=3 uid="uid://blfwl5ksw8nr"]
 
 [ext_resource type="Script" uid="uid://bxo6duu20v5sm" path="res://scripts/Enemy/TurretDino/turret_dino_enemy.gd" id="1_ti74t"]
 [ext_resource type="Script" uid="uid://dfix6u1f65awa" path="res://scripts/Enemy/TurretDino/turret_dino_idle.gd" id="2_4xwq6"]
 [ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="2_f2ok0"]
 [ext_resource type="Script" uid="uid://cbhlc4qnst2wv" path="res://scripts/Enemy/TurretDino/turret_dino_shoot.gd" id="3_iwgtl"]
 [ext_resource type="Script" uid="uid://ey6sb7phbmet" path="res://scripts/State Machine.gd" id="3_k3uhy"]
+[ext_resource type="Script" uid="uid://c64824ukxbnil" path="res://scripts/Enemy/TurretDino/turret_dino_dead.gd" id="6_6jnk0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ti74t"]
 animations = [{
@@ -54,3 +55,8 @@ metadata/_custom_type_script = "uid://dfix6u1f65awa"
 script = ExtResource("3_iwgtl")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://cbhlc4qnst2wv"
+
+[node name="TurretDinoDead" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_6jnk0")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://c64824ukxbnil"

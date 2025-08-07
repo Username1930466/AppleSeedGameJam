@@ -23,5 +23,3 @@ func set_animation():
 			$AnimatedSprite2D.flip_h = true
 	else:
 		$AnimatedSprite2D.flip_v = true
-		await get_tree().create_timer(5).timeout
-		queue_free()

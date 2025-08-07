@@ -22,3 +22,5 @@ func Physics_Update(delta):
 		enemy.velocity = distance.normalized() * move_speed
 	else:
 		Transitioned.emit(self,"TurretDinoShoot")
+	if enemy.health <= 0:
+		Transitioned.emit(self,"TurretDinoDead")

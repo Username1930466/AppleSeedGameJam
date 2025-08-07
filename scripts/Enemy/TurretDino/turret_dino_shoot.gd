@@ -21,6 +21,8 @@ func Physics_Update(delta):
 	if current_cooldown <= 0:
 		current_cooldown = cooldown
 		create_bullet(distance.normalized())
+	if enemy.health <= 0:
+		Transitioned.emit(self,"TurretDinoDead")
 
 
 func create_bullet(dir):
