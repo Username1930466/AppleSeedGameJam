@@ -7,6 +7,9 @@ var new_speed = randf_range(0.5,1)
 var health = 50
 var exp = 10
 
+@onready var shader = $AnimationPlayer
+
+
 func _ready():
 	pass
 
@@ -34,3 +37,7 @@ func spawn_exp():
 		var exp = exp_scene.instantiate()
 		exp.position = global_position + Vector2(randf_range(-128, 128), randf_range(-128, 128))
 		Global.game.add_child(exp)
+	
+func take_damage(damage):
+	health -= damage
+	shader.play("enemy_hit")

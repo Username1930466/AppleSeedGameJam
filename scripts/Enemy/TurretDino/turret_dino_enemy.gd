@@ -5,6 +5,9 @@ var new_speed = randf_range(0.5,1)
 var health = 50
 var exp = 10
 
+@onready var shader = $AnimationPlayer
+
+
 func _ready():
 	pass
 
@@ -23,3 +26,7 @@ func set_animation():
 			$AnimatedSprite2D.flip_h = true
 	else:
 		$AnimatedSprite2D.flip_v = true
+
+func take_damage(damage):
+	health -= damage
+	shader.play("enemy_hit")

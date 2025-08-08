@@ -6,6 +6,9 @@ var exp_scene = preload("res://scenes/exp.tscn")
 var health = 100
 var exp = 5
 
+@onready var shader = $AnimationPlayer
+
+
 func _physics_process(delta):
 	move_and_slide()
 	set_animation()
@@ -31,3 +34,7 @@ func spawn_exp():
 		var exp = exp_scene.instantiate()
 		exp.position = global_position + Vector2(randf_range(-128, 128), randf_range(-128, 128))
 		Global.game.add_child(exp)
+
+func take_damage(damage):
+	health -= damage
+	shader.play("enemy_hit")

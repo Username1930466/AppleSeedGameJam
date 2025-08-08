@@ -2,7 +2,7 @@ extends State
 class_name NormalDinoIdle
 
 @export var enemy : CharacterBody2D
-@export var move_speed := 50.0
+@export var move_speed := 100.0
 
 var move_direction : Vector2
 var wander_time : float 
@@ -20,10 +20,10 @@ func Update(delta : float):
 
 func Physics_Update(_delta:float):
 	var distance = player.global_position - enemy.global_position
-	if distance.length() < 400:
+	if distance.length() <= 400:
 		Transitioned.emit(self,"NormalDinoCharge")
 	else:
-		enemy.velocity = move_direction * move_speed
+		enemy.velocity = distance.normalized() * move_speed
 	if enemy.health <= 0:
 		Transitioned.emit(self,"NormalDinoDead")
 

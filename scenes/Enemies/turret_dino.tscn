@@ -1,11 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://blfwl5ksw8nr"]
+[gd_scene load_steps=15 format=3 uid="uid://blfwl5ksw8nr"]
 
 [ext_resource type="Script" uid="uid://bxo6duu20v5sm" path="res://scripts/Enemy/TurretDino/turret_dino_enemy.gd" id="1_ti74t"]
 [ext_resource type="Script" uid="uid://dfix6u1f65awa" path="res://scripts/Enemy/TurretDino/turret_dino_idle.gd" id="2_4xwq6"]
 [ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="2_f2ok0"]
+[ext_resource type="Shader" uid="uid://c5tjc3y1melp2" path="res://shaders/enemies/enemy_hit.gdshader" id="2_y8hwk"]
 [ext_resource type="Script" uid="uid://cbhlc4qnst2wv" path="res://scripts/Enemy/TurretDino/turret_dino_shoot.gd" id="3_iwgtl"]
 [ext_resource type="Script" uid="uid://ey6sb7phbmet" path="res://scripts/State Machine.gd" id="3_k3uhy"]
 [ext_resource type="Script" uid="uid://c64824ukxbnil" path="res://scripts/Enemy/TurretDino/turret_dino_dead.gd" id="6_6jnk0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xkobq"]
+shader = ExtResource("2_y8hwk")
+shader_parameter/color_percentage = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ti74t"]
 animations = [{
@@ -29,12 +34,66 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwjta"]
 size = Vector2(122, 127)
 
+[sub_resource type="Animation" id="Animation_7img5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/color_percentage")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_ufq8q"]
+resource_name = "enemy_hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/color_percentage")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_opffk"]
+resource_name = "enemy_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/color_percentage")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_68t6p"]
+_data = {
+&"RESET": SubResource("Animation_7img5"),
+&"enemy_hit": SubResource("Animation_ufq8q"),
+&"enemy_start": SubResource("Animation_opffk")
+}
+
 [node name="TurretDino" type="CharacterBody2D" groups=["TurretDino"]]
 collision_layer = 4
 collision_mask = 19
 script = ExtResource("1_ti74t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_xkobq")
 sprite_frames = SubResource("SpriteFrames_ti74t")
 animation = &"idle"
 
@@ -60,3 +119,8 @@ metadata/_custom_type_script = "uid://cbhlc4qnst2wv"
 script = ExtResource("6_6jnk0")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://c64824ukxbnil"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_68t6p")
+}
