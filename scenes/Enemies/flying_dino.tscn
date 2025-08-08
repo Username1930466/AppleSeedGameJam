@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://d1dxmemk40n8c" path="res://scripts/Enemy/FlyingDino/flying_dino_preparing.gd" id="7_dcr2x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byhup"]
+resource_local_to_scene = true
 shader = ExtResource("2_no5lw")
 shader_parameter/color_percentage = 0.0
 
@@ -87,7 +88,7 @@ _data = {
 
 [node name="FlyingDino" type="CharacterBody2D" groups=["FlyingDino"]]
 collision_layer = 4
-collision_mask = 19
+collision_mask = 2
 script = ExtResource("1_vbxqa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

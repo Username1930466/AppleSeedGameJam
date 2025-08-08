@@ -1,7 +1,7 @@
 extends State
 class_name NormalDinoDead
 
-@onready var collision = $"../../CollisionShape2D"
+@onready var collision = $"../../HitBox"
 
 
 @export var enemy : CharacterBody2D

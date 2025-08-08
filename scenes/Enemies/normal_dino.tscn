@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlkvwy6b6b54e"]
+[gd_scene load_steps=16 format=3 uid="uid://dlkvwy6b6b54e"]
 
 [ext_resource type="Script" uid="uid://chsfvqm6p2gcv" path="res://scripts/Enemy/NormalDino/normal_dino_enemy.gd" id="1_7qor5"]
 [ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="2_b5n0f"]
@@ -34,6 +34,9 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7qor5"]
 radius = 49.0102
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_opffk"]
+radius = 60.0
 
 [sub_resource type="Animation" id="Animation_7img5"]
 length = 0.001
@@ -99,9 +102,14 @@ material = SubResource("ShaderMaterial_ufq8q")
 sprite_frames = SubResource("SpriteFrames_jn1pm")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+[node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7qor5")
+
+[node name="HurtBoxArea" type="Area2D" parent="."]
+
+[node name="Hurtbox" type="CollisionShape2D" parent="HurtBoxArea"]
+shape = SubResource("CircleShape2D_opffk")
+debug_color = Color(0.975809, 0, 0.416617, 0.42)
 
 [node name="State Machine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("3_78en1")]
 initial_state = NodePath("NormalDinoIdle")
@@ -125,3 +133,5 @@ metadata/_custom_type_script = "uid://b5y5t8rgd8mvg"
 libraries = {
 &"": SubResource("AnimationLibrary_68t6p")
 }
+
+[connection signal="body_entered" from="HurtBoxArea" to="." method="_on_area_2d_body_entered"]

@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://c64824ukxbnil" path="res://scripts/Enemy/TurretDino/turret_dino_dead.gd" id="6_6jnk0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xkobq"]
+resource_local_to_scene = true
 shader = ExtResource("2_y8hwk")
 shader_parameter/color_percentage = 0.0
 

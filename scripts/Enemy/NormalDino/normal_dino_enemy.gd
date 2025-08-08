@@ -4,10 +4,17 @@ class_name NormalDinoEnemy
 var exp_scene = preload("res://scenes/exp.tscn")
 
 var health = 100
+var damage = 10
 var exp = 5
 
+var player : CharacterBody2D
+
+@onready var hurtbox = $HurtBoxArea/Hurtbox
 @onready var shader = $AnimationPlayer
 
+
+func _ready():
+	player = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(delta):
 	move_and_slide()
@@ -38,3 +45,20 @@ func spawn_exp():
 func take_damage(damage):
 	health -= damage
 	shader.play("enemy_hit")
+
+
+func _on_area_2d_body_entered(player):
+	if player:
+		give_damage(damage)
+
+func give_damage(damage):
+	hurtbox.set_deferred("disabled", true)
+	player.take_damage(damage)
+	await get_tree().create_timer(1.0).timeout
+	hurtbox.set_deferred("disabled",false)
+	
+	var current_body = $HurtBoxArea.get_overlapping_bodies()
+	if player in current_body && hurtbox.disabled:
+		give_damage(damage)
+	else:
+		return
