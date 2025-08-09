@@ -3,7 +3,7 @@ class_name NormalDinoEnemy
 
 var exp_scene = preload("res://scenes/exp.tscn")
 
-var health = 100
+var health = 60
 var damage = 10
 var exp = 5
 

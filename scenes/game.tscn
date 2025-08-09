@@ -341,11 +341,6 @@ position = Vector2(-703, 837)
 
 [node name="EnemyWaves" type="Node" parent="."]
 script = ExtResource("11_kvpfn")
-enemy_list = Dictionary[String, PackedScene]({
-"FlyingDino": ExtResource("9_0tnpc"),
-"NormalDino": ExtResource("6_p57ef"),
-"TurretDino": ExtResource("10_vtaks")
-})
 
 [node name="Timer" type="Timer" parent="EnemyWaves"]
 wait_time = 5.0

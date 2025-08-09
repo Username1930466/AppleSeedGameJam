@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=2 format=3 uid="uid://clrochvjs5bsm"]
+
+[ext_resource type="Script" uid="uid://dl1anmei5d8cb" path="res://resources/waves/waves.gd" id="2_4yu6w"]
+
+[resource]
+script = ExtResource("2_4yu6w")
+enemy_list = Dictionary[String, PackedScene]({})

@@ -9,6 +9,7 @@ var current_dino = preload("res://resources/dinos/raptor.tres")
 var available_dinos = {0: preload("res://resources/dinos/t_rex.tres"), 1: preload("res://resources/dinos/raptor.tres")}
 var upgrades: Dictionary
 
+
  # Settings
 var screenshake = true
 var blood = true

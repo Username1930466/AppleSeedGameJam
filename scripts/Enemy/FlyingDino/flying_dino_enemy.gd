@@ -4,7 +4,7 @@ class_name FlyingDinoEnemy
 var exp_scene = preload("res://scenes/exp.tscn")
 
 var new_speed = randf_range(0.5,1)
-var health = 50
+var health = 25
 var exp = 10
 
 @onready var shader = $AnimationPlayer

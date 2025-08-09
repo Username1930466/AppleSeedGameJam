@@ -9,6 +9,11 @@ func _ready() -> void:
 	$ScreenshakeToggle.button_pressed = Global.screenshake
 	$BloodToggle.button_pressed = Global.blood
 
+
+func _process(delta):
+		$Title/Label/AnimationPlayer.play("title_bump")
+
+
 func _on_play_button_pressed() -> void:
 	Global.upgrades = empty_upgrades
 	Global.current_dino = Global.available_dinos[selected_dino]

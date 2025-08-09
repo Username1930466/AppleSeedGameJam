@@ -8,5 +8,5 @@ min_damage = 10
 max_damage = 15
 cooldown = 0.25
 capacity = 25
-reload_time = 7.5
+reload_time = 5.0
 metadata/_custom_type_script = "uid://b1n8lvcbcjt2v"

@@ -4,9 +4,9 @@ class_name FlyingDinoCharge
 @export var enemy : FlyingDinoEnemy
 
 var time := 0.0
-var move_speed := 2.0
+var move_speed := 1.0
 var radius := 500.0
-var cooldown := 300.0
+var cooldown := 600.0
 var current_cooldown = cooldown
 
 var bullet = preload("res://scenes/Enemies/Projectile/flying_dino_projectile.tscn")

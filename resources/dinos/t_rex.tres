@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="Dino" load_steps=5 format=3 uid="uid://bwj53af7ln1d8"]
+[gd_resource type="Resource" script_class="Dino" load_steps=4 format=3 uid="uid://bwj53af7ln1d8"]
 
 [ext_resource type="Resource" uid="uid://c5eg63vx407ja" path="res://resources/guns/pistol.tres" id="1_8sm0j"]
 [ext_resource type="Script" uid="uid://bcdxor7mnj062" path="res://resources/bases/dino.gd" id="1_yah4a"]
 [ext_resource type="Resource" uid="uid://c8bxfk00pejuc" path="res://resources/melee_attacks/chomp.tres" id="2_qd1pj"]
-[ext_resource type="Texture2D" uid="uid://dt80ip10hyr8q" path="res://textures/dinos/t_rex.png" id="4_qd1pj"]
 
 [resource]
 script = ExtResource("1_yah4a")
 name = "T-Rex"
-texture = ExtResource("4_qd1pj")
+idle_anim = ""
+walking_anim = ""
 speed = 200.0
 defense = 0.25
 max_health = 200.0

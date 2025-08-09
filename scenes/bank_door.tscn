@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq4ghm8dle056"]
+
+[ext_resource type="Script" uid="uid://dd53ct7tj1irk" path="res://scripts/bank_door.gd" id="1_6js5a"]
+[ext_resource type="PackedScene" uid="uid://dlkvwy6b6b54e" path="res://scenes/Enemies/normal_dino.tscn" id="2_cs427"]
+[ext_resource type="PackedScene" uid="uid://cr0f248x5bkhg" path="res://scenes/Enemies/flying_dino.tscn" id="3_li3nh"]
+[ext_resource type="PackedScene" uid="uid://blfwl5ksw8nr" path="res://scenes/Enemies/turret_dino.tscn" id="4_qkdyx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phveu"]
+size = Vector2(150, 60)
+
+[node name="BankDoor" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_6js5a")
+enemy_list = Dictionary[String, PackedScene]({
+"FlyingDino": ExtResource("3_li3nh"),
+"NormalDino": ExtResource("2_cs427"),
+"TurretDino": ExtResource("4_qkdyx")
+})
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_phveu")
+
+[node name="Countdown" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Countdown" to="." method="_on_countdown_timeout"]
