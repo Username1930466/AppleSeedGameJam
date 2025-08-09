@@ -1,30 +1,93 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxtiwxctd6gfu"]
+[gd_scene load_steps=16 format=3 uid="uid://cxtiwxctd6gfu"]
 
-[ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://btun4lqyn5wbj" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://dt80ip10hyr8q" path="res://textures/dinos/t_rex.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://co64dft27m2nu" path="res://textures/dinos/mobdino_Dino_Raptor_1.png" id="2_jej6c"]
+[ext_resource type="Texture2D" uid="uid://dpy0kjbcmxoky" path="res://textures/dinos/mobdino_Dino_Raptor_2.png" id="3_f1ej7"]
 [ext_resource type="Script" uid="uid://dwn0m7wsc45h4" path="res://scripts/gun.gd" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://dx56jjoxl4ho5" path="res://sounds/player_gunshot.mp3" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://rmir0ac8ue5a" path="res://textures/dinos/mobdino_Dino_Raptor_3.png" id="4_oprun"]
+[ext_resource type="Texture2D" uid="uid://canmbmv2ert6l" path="res://textures/dinos/mobdino_Dino_Raptor_4.png" id="5_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://b3bu4mwq67j4p" path="res://textures/dinos/mobdino_Dino_Rex_1.png" id="6_qfm1y"]
 [ext_resource type="AudioStream" uid="uid://pnlxogty5tst" path="res://sounds/music/mobosaurs L1 2nd pass (loopable).mp3" id="6_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://d0cea5j7yirb0" path="res://textures/dinos/mobdino_Dino_Rex_2.png" id="7_fulsm"]
+[ext_resource type="Texture2D" uid="uid://rf5tek4hwxip" path="res://textures/dinos/mobdino_Dino_Rex_3.png" id="8_4r5pv"]
+[ext_resource type="Texture2D" uid="uid://c1mv0mssclwpu" path="res://textures/dinos/mobdino_Dino_Rex_4.png" id="9_60mlk"]
+[ext_resource type="Texture2D" uid="uid://b46bhednda41t" path="res://textures/dinos/mobdino_Gun_Rex.png" id="10_i4ail"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a38lo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jej6c")
+}],
+"loop": true,
+"name": &"raptor_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jej6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f1ej7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oprun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a8ls1")
+}],
+"loop": true,
+"name": &"raptor_walk",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qfm1y")
+}],
+"loop": true,
+"name": &"t_rex_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qfm1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fulsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4r5pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_60mlk")
+}],
+"loop": true,
+"name": &"t_rex_walk",
+"speed": 4.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(118, 246)
+size = Vector2(128, 256)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 24
 script = ExtResource("1_g2els")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_qlg0r")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a38lo")
+animation = &"raptor_idle"
+flip_h = true
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Gun" type="Sprite2D" parent="."]
-position = Vector2(-43, 0)
-scale = Vector2(1, 0.5)
-texture = ExtResource("1_3vyb7")
-offset = Vector2(48, 4)
+position = Vector2(54, 18)
+texture = ExtResource("10_i4ail")
+offset = Vector2(-53, -20)
+flip_h = true
 script = ExtResource("3_qhqgy")
 
 [node name="Output" type="Marker2D" parent="Gun"]
