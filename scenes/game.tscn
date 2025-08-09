@@ -347,6 +347,10 @@ enemy_list = Dictionary[String, PackedScene]({
 "TurretDino": ExtResource("10_vtaks")
 })
 
+[node name="Timer" type="Timer" parent="EnemyWaves"]
+wait_time = 5.0
+autostart = true
+
 [connection signal="mouse_entered" from="UI/UpgradeMenu/Upgrade1" to="UI/UpgradeMenu" method="_on_upgrade_1_mouse_entered"]
 [connection signal="mouse_exited" from="UI/UpgradeMenu/Upgrade1" to="UI/UpgradeMenu" method="_on_upgrade_1_mouse_exited"]
 [connection signal="mouse_entered" from="UI/UpgradeMenu/Upgrade2" to="UI/UpgradeMenu" method="_on_upgrade_2_mouse_entered"]
@@ -358,3 +362,4 @@ enemy_list = Dictionary[String, PackedScene]({
 [connection signal="pressed" from="UI/PauseMenu/MenuButton" to="UI/PauseMenu" method="_on_menu_button_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/ScreenshakeToggle" to="UI/PauseMenu" method="_on_screenshake_toggle_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/BloodToggle" to="UI/PauseMenu" method="_on_blood_toggle_pressed"]
+[connection signal="timeout" from="EnemyWaves/Timer" to="EnemyWaves" method="_on_timer_timeout"]

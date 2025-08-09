@@ -41,7 +41,7 @@ func _on_area_2d_body_entered(body) -> void:
 		if enemy[0] in acceptable_enemies:
 			if pierces > 0:
 				pierces -= 1
-				body.health -= damage
+				body.take_damage(damage)
 				$AudioStreamPlayer2D.stream = flesh_hit
 				$AudioStreamPlayer2D.playing = true
 			else:
@@ -50,7 +50,7 @@ func _on_area_2d_body_entered(body) -> void:
 					if Global.blood:
 						$BulletSprite/CPUParticles2D.emitting = true
 					$BulletSprite.reparent(body, true)
-			body.health -= damage
+			body.take_damage(damage)
 			$AudioStreamPlayer2D.stream = flesh_hit
 			$AudioStreamPlayer2D.playing = true
 			await get_tree().create_timer(0.62).timeout

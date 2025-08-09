@@ -5,13 +5,18 @@ var exp_scene = preload("res://scenes/exp.tscn")
 var deathshots = 600
 var exp = 10
 
+
 var bullet = preload("res://scenes/Enemies/Projectile/flying_dino_projectile.tscn")
+@onready var collision = $"../../CollisionShape2D"
+
+
 @export var enemy : CharacterBody2D
 
 func Enter():
 	enemy.velocity = Vector2.ZERO
 
 func Physics_Update(delta):
+	collision.disabled = true
 	deathshots -= 5
 	if deathshots % 50 == 0:
 		create_bullet(Vector2(randf_range(-1,1),randf_range(-1,1)))

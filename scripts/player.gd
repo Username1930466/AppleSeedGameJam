@@ -32,3 +32,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		$Sprite2D.animation = walking_anim
 	move_and_slide()
+
+func take_damage(damage):
+	health -= damage
