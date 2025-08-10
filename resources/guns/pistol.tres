@@ -9,4 +9,5 @@ max_damage = 20
 cooldown = 0.75
 capacity = 10
 reload_time = 3.75
+offset = Vector2i(53, -20)
 metadata/_custom_type_script = "uid://b1n8lvcbcjt2v"

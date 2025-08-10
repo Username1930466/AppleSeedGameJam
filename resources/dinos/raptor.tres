@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_cgq28")
 name = "Raptor"
-idle_anim = ""
-walking_anim = ""
+idle_anim = "raptor_idle"
+walking_anim = "raptor_walk"
 speed = 350.0
 defense = 0.0
 max_health = 150.0

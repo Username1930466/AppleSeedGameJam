@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://5kcvuixub80q"]
+[gd_scene load_steps=11 format=4 uid="uid://5kcvuixub80q"]
 
 [ext_resource type="Script" uid="uid://cox22j3k8a4da" path="res://scripts/menu.gd" id="1_xdvgc"]
-[ext_resource type="Texture2D" uid="uid://dt80ip10hyr8q" path="res://textures/dinos/t_rex.png" id="2_upctu"]
+[ext_resource type="Texture2D" uid="uid://co64dft27m2nu" path="res://textures/dinos/mobdino_Dino_Raptor_1.png" id="2_o0tnf"]
 [ext_resource type="Texture2D" uid="uid://bvqnhre1tgxsq" path="res://textures/Tileset.png" id="3_11y2r"]
+[ext_resource type="Texture2D" uid="uid://b3bu4mwq67j4p" path="res://textures/dinos/mobdino_Dino_Rex_1.png" id="3_jmdev"]
 
 [sub_resource type="Animation" id="Animation_o0tnf"]
 length = 0.001
@@ -88,6 +89,25 @@ _data = {
 &"RESET": SubResource("Animation_o0tnf"),
 &"title_bump": SubResource("Animation_11y2r")
 }
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b6cxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o0tnf")
+}],
+"loop": true,
+"name": &"raptor_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jmdev")
+}],
+"loop": true,
+"name": &"t_rex_idle",
+"speed": 5.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0tnf"]
 texture = ExtResource("3_11y2r")
@@ -245,23 +265,25 @@ offset_bottom = 520.0
 theme_override_font_sizes/font_size = 32
 text = "WASD to move, LMB to shoot, RMB to melee, R to reload, ESC to pause"
 
-[node name="DinoSprite" type="Sprite2D" parent="."]
+[node name="DinoSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-612, 0)
-scale = Vector2(2, 2)
-texture = ExtResource("2_upctu")
+sprite_frames = SubResource("SpriteFrames_b6cxs")
+animation = &"t_rex_idle"
+flip_h = true
 
 [node name="NextDinoButton" type="Button" parent="."]
-offset_left = -469.0
+offset_left = -452.0
 offset_top = -48.0
-offset_right = -424.0
+offset_right = -407.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 64
 text = ">"
 
 [node name="PrevDinoButton" type="Button" parent="."]
-offset_left = -805.0
+offset_left = -817.0
 offset_top = -48.0
-offset_right = -760.0
+offset_right = -772.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 64
 text = "<"
@@ -273,9 +295,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -812.0
-offset_top = -321.0
+offset_top = -219.0
 offset_right = -412.0
-offset_bottom = -276.0
+offset_bottom = -174.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(200, 0)

@@ -49,7 +49,7 @@ func _on_prev_dino_button_pressed() -> void:
 
 func display_selected():
 	var selected_stats = Global.available_dinos[selected_dino]
-	$DinoSprite.texture = selected_stats.texture
+	$DinoSprite.play(selected_stats.idle_anim)
 	$DinoNameLabel.text = selected_stats.name
 
 func _on_blood_toggle_pressed() -> void:

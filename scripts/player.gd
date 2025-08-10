@@ -28,9 +28,19 @@ func _physics_process(delta: float) -> void:
 	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_vector.normalized() * speed
 	if velocity == Vector2.ZERO:
-		$Sprite2D.animation = idle_anim
+		$Sprite2D.play(idle_anim)
 	else:
-		$Sprite2D.animation = walking_anim
+		$Sprite2D.play(walking_anim)
+		if velocity.x < 0:
+			$Sprite2D.flip_h = false
+			$Gun.flip_h = false
+			$Gun.offset = Vector2i(-32, -15)
+			$Gun.position = Vector2i(-53, 16)
+		else:
+			$Sprite2D.flip_h = true
+			$Gun.flip_h = true
+			$Gun.offset = Vector2i(32, -15)
+			$Gun.position = Vector2i(53, 16)
 	move_and_slide()
 
 func take_damage(damage):

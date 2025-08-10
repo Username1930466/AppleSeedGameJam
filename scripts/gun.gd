@@ -6,8 +6,8 @@ var cooldown_length: float
 var capacity: int
 var reload_time: float
 
-var norm_output_pos = Vector2(112, -40)
-var flip_output_pos = Vector2(112, 40)
+var norm_output_pos = Vector2(82, -39)
+var flip_output_pos = Vector2(82, 9)
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var dir: Vector2
@@ -30,6 +30,8 @@ func _process(delta: float):
 	var mouse_pos = get_global_mouse_position()
 	dir = (mouse_pos - global_position).normalized()
 	rotation = dir.angle()
+	if !flip_h:
+		rotation += deg_to_rad(180)
 	flip_v = (abs(rotation_degrees) > 90 and abs(rotation_degrees) < 270)
 	if flip_v:
 		$Output.position = flip_output_pos
