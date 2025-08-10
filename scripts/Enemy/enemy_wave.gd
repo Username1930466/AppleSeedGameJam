@@ -1,17 +1,18 @@
 extends Node
 
 
-var spawn_radius := 500
+var spawn_radius := 200
 
 
 var waves_list : Array
+var show_text : bool
+var stop_wave = false
 var current_wave_number := 0
 var current_wave : Wave
-var number_of_enemies : int
 
 
-@onready var timer = $Timer
-
+@onready var timer = $NextEnemy
+@onready var next_wave = $NextWave
 
 
 var player : CharacterBody2D
@@ -23,9 +24,14 @@ func _ready():
 	load_wave("res://resources/waves/outside/" + waves_list[current_wave_number])
 	current_wave_number += 1
 
+
+
+func _physics_process(delta):
+	current_wave_state()
+
+
 func spawn_enemies():
 	var enemy_keys = current_wave.enemy_list.keys()
-	print(enemy_keys)
 	var enemy_number = randi() % current_wave.enemy_list.size()
 	var next_enemy = enemy_keys[enemy_number]
 	player = get_tree().get_first_node_in_group("Player")
@@ -34,6 +40,7 @@ func spawn_enemies():
 		cos(randf_range(0,2 * PI)) * spawn_radius,
 		sin(randf_range(0,2 * PI)) * spawn_radius)
 	add_child(new_enemy)
+	current_wave.number_of_enemies -= 1
 
 
 func prepare_enemy_list():
@@ -49,8 +56,26 @@ func load_wave(new_wave):
 	current_wave = load(new_wave)
 
 
+func current_wave_state():
+	if current_wave.number_of_enemies == 0:
+		$"../UI/WaveWon".visible = true
+		next_wave.start()
+		current_wave.number_of_enemies = -1
+	$"../UI/WaveWon".text = ("WAVE WON!\rNew wave starts in : " + str((next_wave.time_left)))
+
+
 
 
 func _on_timer_timeout():
-	spawn_enemies()
-	timer.start()
+	if current_wave.number_of_enemies > 0:
+		spawn_enemies()
+		timer.start()
+
+
+
+
+func _on_next_wave_timeout():
+	load_wave("res://resources/waves/outside/" + waves_list[current_wave_number])
+	current_wave_number += 1
+	$"../UI/WaveWon".visible = false
+	
