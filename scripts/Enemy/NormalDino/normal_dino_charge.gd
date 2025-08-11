@@ -1,7 +1,7 @@
 extends State
 class_name NormalDinoCharge
 
-var move_speed := 200.0
+var move_speed := 300.0
 
 
 @export var enemy : CharacterBody2D

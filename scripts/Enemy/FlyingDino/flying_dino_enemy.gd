@@ -10,6 +10,10 @@ var exp = 10
 @onready var shader = $AnimationPlayer
 
 
+signal enemy_dead
+
+
+
 func _ready():
 	pass
 

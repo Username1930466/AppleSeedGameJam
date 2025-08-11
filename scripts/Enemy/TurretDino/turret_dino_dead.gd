@@ -22,6 +22,7 @@ func Physics_Update(delta):
 		create_bullet(Vector2(randf_range(-1,1),randf_range(-1,1)))
 	if deathshots <= 0:
 		spawn_exp()
+		enemy.enemy_dead.emit()
 		enemy.queue_free()
 
 func create_bullet(dir):

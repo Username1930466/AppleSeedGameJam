@@ -9,3 +9,4 @@ class_name FlyingDinoDead
 func Enter():
 	enemy.velocity = Vector2()
 	collision.disabled = true
+	enemy.enemy_dead.emit()

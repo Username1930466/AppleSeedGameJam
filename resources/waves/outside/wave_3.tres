@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://c1aq5wndve53e"]
+
+[ext_resource type="PackedScene" uid="uid://dlkvwy6b6b54e" path="res://scenes/Enemies/normal_dino.tscn" id="1_sty2p"]
+[ext_resource type="Script" uid="uid://dl1anmei5d8cb" path="res://resources/waves/waves.gd" id="2_nx731"]
+
+[resource]
+script = ExtResource("2_nx731")
+enemy_list = Dictionary[String, PackedScene]({
+"NormalDino": ExtResource("1_sty2p")
+})
+number_of_enemies = 3

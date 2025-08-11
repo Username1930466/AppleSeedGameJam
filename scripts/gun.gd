@@ -79,12 +79,10 @@ func _process(delta: float):
 				$Output/AudioStreamPlayer2D.playing = true
 	
 	 # Reload
-	if Input.is_action_just_pressed("reload"):
+	if Input.is_action_just_pressed("reload") || ammo == 0:
 		if !reloading:
 			reloading = true
-			print(reload_time)
 			reload_cooldown = reload_time * (1 - (float(Global.upgrades["Faster Reload"]) / 10.0))
-			print(reload_cooldown)
 	
 	reload_cooldown -= delta
 	if reload_cooldown <= 0 and reloading:

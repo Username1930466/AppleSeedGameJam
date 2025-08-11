@@ -5,6 +5,11 @@ var new_speed = randf_range(0.5,1)
 var health = 80
 var exp = 10
 
+
+signal enemy_dead
+
+
+
 @onready var shader = $AnimationPlayer
 
 
