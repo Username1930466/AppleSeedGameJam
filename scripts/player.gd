@@ -9,6 +9,9 @@ var exp = 0
 var idle_anim: String
 var walking_anim: String
 
+var can_walk = true
+var menu_scene = "res://scenes/Menu.tscn"
+
 func _ready() -> void:
 	idle_anim = Global.current_dino.idle_anim
 	walking_anim = Global.current_dino.walking_anim
@@ -25,8 +28,9 @@ func _process(delta: float) -> void:
 		$"../UI/UpgradeMenu".upgrade()
 
 func _physics_process(delta: float) -> void:
-	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = input_vector.normalized() * speed
+	if can_walk:
+		var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		velocity = input_vector.normalized() * speed
 	if velocity == Vector2.ZERO:
 		$Sprite2D.play(idle_anim)
 	else:
@@ -45,3 +49,12 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(damage):
 	health -= damage
+	if health <= 0:
+		$Sprite2D.flip_v = true
+		$"../UI/YouDiedLabel".visible = true
+		process_mode = Node.PROCESS_MODE_ALWAYS
+		get_tree().paused = true
+		can_walk = false
+		await get_tree().create_timer(2.5).timeout
+		get_tree().paused = false
+		get_tree().change_scene_to_file(menu_scene)

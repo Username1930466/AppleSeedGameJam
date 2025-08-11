@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(128, 256)
+size = Vector2(128, 170)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 24
@@ -80,10 +80,11 @@ animation = &"t_rex_idle"
 flip_h = true
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0, 29)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Gun" type="Sprite2D" parent="."]
+process_mode = 1
 position = Vector2(49, 15)
 texture = ExtResource("10_i4ail")
 offset = Vector2(32, -15)

@@ -21,7 +21,7 @@ func upgrade():
 	upgrade_menu = true
 	hovered = null
 	get_tree().paused = true
-	$"../../Player".exp_needed = $"../../Player".exp_needed * 2
+	$"../../Player".exp_needed = $"../../Player".exp_needed * 1.5
 	
 	upgrade_pool.append("Multishot")
 	upgrade_pool.append("Double Shot")

@@ -12,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
-		HBoxContainer.visible = true
+		$HBoxContainer.visible = true
 
 func _on_yes_pressed():
 	$HBoxContainer.visible = false
