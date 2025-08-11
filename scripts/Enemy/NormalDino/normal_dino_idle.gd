@@ -2,7 +2,7 @@ extends State
 class_name NormalDinoIdle
 
 @export var enemy : CharacterBody2D
-@export var move_speed := 200.0
+@export var move_speed := 300.0
 
 var move_direction : Vector2
 var wander_time : float 

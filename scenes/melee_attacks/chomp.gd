@@ -8,6 +8,11 @@ var cooldown_length: float
 var cooldown = 0.0
 var mouth_closed = false
 
+
+var acceptable_enemies = ["NormalDino","FlyingDino","TurretDino"]
+
+
+
 func _ready() -> void:
 	damage = Global.current_dino.melee_attack.damage
 	defense_pierce = Global.current_dino.melee_attack.defence_pierce
@@ -47,8 +52,9 @@ func chomp():
 	attacking = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is NormalDinoEnemy or body is FlyingDinoEnemy:
-		body.health -= damage
+	var enemy = body.get_groups()
+	if enemy[0] in acceptable_enemies:
+		body.take_damage(damage)
 		$FleshPlayer.playing = true
 	if body is TileMapLayer:
 		$BrickPlayer.volume_db = damage / 2

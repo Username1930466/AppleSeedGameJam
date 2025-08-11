@@ -22,13 +22,7 @@ func _physics_process(delta):
 
 func set_animation():
 	if health > 0 :
-		if velocity.length() > 0:
-			$AnimatedSprite2D.play("follow")
-		
-		if velocity.x > 0:
-			$AnimatedSprite2D.flip_h = false
-		else:
-			$AnimatedSprite2D.flip_h = true
+		pass
 	else:
 		$AnimatedSprite2D.flip_v = true
 

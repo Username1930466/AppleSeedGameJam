@@ -6,10 +6,13 @@ class_name FlyingDinoCharge
 var time := 0.0
 var move_speed := 1.0
 var radius := 500.0
-var cooldown := 600.0
+var cooldown := 800.0
 var current_cooldown = cooldown
 
 var bullet = preload("res://scenes/Enemies/Projectile/flying_dino_projectile.tscn")
+
+
+
 
 @onready var sprite = $"../../AnimatedSprite2D"
 var player : CharacterBody2D
@@ -18,7 +21,7 @@ var player : CharacterBody2D
 
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
-
+	sprite.play("turn_around")
 
 
 func Update(delta):

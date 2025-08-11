@@ -1,13 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://cr0f248x5bkhg"]
+[gd_scene load_steps=23 format=3 uid="uid://cr0f248x5bkhg"]
 
-[ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="1_6ygg4"]
 [ext_resource type="Script" uid="uid://nyhe12j6rbx" path="res://scripts/Enemy/FlyingDino/flying_dino_enemy.gd" id="1_vbxqa"]
 [ext_resource type="Shader" uid="uid://c5tjc3y1melp2" path="res://shaders/enemies/enemy_hit.gdshader" id="2_no5lw"]
 [ext_resource type="Script" uid="uid://ey6sb7phbmet" path="res://scripts/State Machine.gd" id="2_vbxqa"]
+[ext_resource type="Texture2D" uid="uid://b5ml4vn45fo3p" path="res://textures/enemy_dinos/dino_enemy_Ptero_1.png" id="3_g03it"]
+[ext_resource type="Texture2D" uid="uid://cp6unnwvpgs5s" path="res://textures/enemy_dinos/dino_enemy_Ptero_2.png" id="4_mwrhf"]
 [ext_resource type="Script" uid="uid://pqquwts5rq17" path="res://scripts/Enemy/FlyingDino/flying_dino_idle.gd" id="4_y5tnh"]
+[ext_resource type="Texture2D" uid="uid://bvp6fobiuauow" path="res://textures/enemy_dinos/dino_enemy_Ptero_3.png" id="5_5xrnw"]
 [ext_resource type="Script" uid="uid://bde4jyvrl64fd" path="res://scripts/Enemy/FlyingDino/flying_dino_charge.gd" id="5_ikj4b"]
 [ext_resource type="Script" uid="uid://bfno11y1c3dc0" path="res://scripts/Enemy/FlyingDino/flying_dino_dead.gd" id="6_5e5ng"]
+[ext_resource type="Texture2D" uid="uid://d8755xb5gdx3" path="res://textures/enemy_dinos/dino_enemy_Ptero_4.png" id="6_u1gk3"]
 [ext_resource type="Script" uid="uid://d1dxmemk40n8c" path="res://scripts/Enemy/FlyingDino/flying_dino_preparing.gd" id="7_dcr2x"]
+[ext_resource type="Texture2D" uid="uid://ijqkww6ggwkr" path="res://textures/enemy_dinos/dino_enemy_Ptero_5.png" id="7_u7iyd"]
+[ext_resource type="Texture2D" uid="uid://bledbq2wypxmn" path="res://textures/enemy_dinos/dino_enemy_Ptero_6.png" id="8_ux0fp"]
+[ext_resource type="Texture2D" uid="uid://dcl5itbssc17l" path="res://textures/enemy_dinos/dino_enemy_Ptero_7.png" id="9_wnbxe"]
+[ext_resource type="Texture2D" uid="uid://dyvi2l2os58om" path="res://textures/enemy_dinos/dino_enemy_Ptero_8.png" id="10_646pg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_byhup"]
 resource_local_to_scene = true
@@ -16,22 +23,51 @@ shader_parameter/color_percentage = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y5tnh"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"follow",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_6ygg4")
+"texture": ExtResource("3_g03it")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mwrhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5xrnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u1gk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u7iyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ux0fp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wnbxe")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_646pg")
+}],
+"loop": true,
+"name": &"prepare",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g03it")
+}],
+"loop": true,
+"name": &"turn_around",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikj4b"]
-radius = 53.0
+radius = 91.1373
 
 [sub_resource type="Animation" id="Animation_7img5"]
 length = 0.001
@@ -89,14 +125,16 @@ _data = {
 [node name="FlyingDino" type="CharacterBody2D" groups=["FlyingDino"]]
 collision_layer = 4
 collision_mask = 2
+motion_mode = 1
 script = ExtResource("1_vbxqa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_byhup")
 sprite_frames = SubResource("SpriteFrames_y5tnh")
-animation = &"idle"
+animation = &"turn_around"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 5)
 shape = SubResource("CircleShape2D_ikj4b")
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

@@ -11,8 +11,13 @@ var player : CharacterBody2D
 var timer : Timer
 
 
+@onready var animation =  $"../../AnimatedSprite2D"
+
+
+
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
+	animation.play("prepare")
 	create_timer()
 
 

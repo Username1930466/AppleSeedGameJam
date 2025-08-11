@@ -11,9 +11,13 @@ var wander_time : float
 var player : CharacterBody2D
 
 
+@onready var animation =  $"../../AnimatedSprite2D"
+
+
+
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
-	
+	animation.play("follow")
 
 func Physics_Update(delta):
 	var distance = player.global_position - enemy.global_position
@@ -24,3 +28,10 @@ func Physics_Update(delta):
 		Transitioned.emit(self,"TurretDinoShoot")
 	if enemy.health <= 0:
 		Transitioned.emit(self,"TurretDinoDead")
+	set_animation()
+
+func set_animation():
+	if enemy.velocity.x < 0:
+		animation.flip_h = false
+	else:
+		animation.flip_h = true

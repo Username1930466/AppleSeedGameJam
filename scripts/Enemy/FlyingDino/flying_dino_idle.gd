@@ -7,11 +7,12 @@ var player : CharacterBody2D
 
 var radius := 500
 var move_speed := 200.0
-
+@onready var animation =  $"../../AnimatedSprite2D"
 
 
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
+	animation.play("idle")
 
 
 func Update(_delta : float):

@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlkvwy6b6b54e"]
+[gd_scene load_steps=17 format=3 uid="uid://dlkvwy6b6b54e"]
 
 [ext_resource type="Script" uid="uid://chsfvqm6p2gcv" path="res://scripts/Enemy/NormalDino/normal_dino_enemy.gd" id="1_7qor5"]
-[ext_resource type="Texture2D" uid="uid://ba714uwlf0bsc" path="res://icon.svg" id="2_b5n0f"]
 [ext_resource type="Shader" uid="uid://c5tjc3y1melp2" path="res://shaders/enemies/enemy_hit.gdshader" id="2_opffk"]
 [ext_resource type="Script" uid="uid://crck6i5effpsi" path="res://scripts/Enemy/NormalDino/normal_dino_idle.gd" id="3_7qor5"]
 [ext_resource type="PackedScene" uid="uid://bblyd1ais6kf8" path="res://scenes/state_machine.tscn" id="3_78en1"]
+[ext_resource type="Texture2D" uid="uid://b6eushh41n63e" path="res://textures/enemy_dinos/dino_enemy_Rex_1.png" id="3_ufq8q"]
+[ext_resource type="Texture2D" uid="uid://b2hdnoryydqhx" path="res://textures/enemy_dinos/dino_enemy_Rex_2.png" id="4_7img5"]
 [ext_resource type="Script" uid="uid://csgwtpi6mwhgm" path="res://scripts/Enemy/NormalDino/normal_dino_charge.gd" id="5_78en1"]
 [ext_resource type="Script" uid="uid://b5y5t8rgd8mvg" path="res://scripts/Enemy/NormalDino/normal_dino_dead.gd" id="6_wsy1b"]
 
@@ -17,26 +18,21 @@ shader_parameter/color_percentage = 0.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_b5n0f")
+"texture": ExtResource("3_ufq8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7img5")
 }],
 "loop": true,
 "name": &"follow",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_b5n0f")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
+"speed": 2.5
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7qor5"]
-radius = 49.0102
+radius = 107.042
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_opffk"]
-radius = 60.0
+radius = 108.074
 
 [sub_resource type="Animation" id="Animation_7img5"]
 length = 0.001
@@ -95,12 +91,14 @@ _data = {
 z_index = -1
 collision_layer = 4
 collision_mask = 19
+motion_mode = 1
 script = ExtResource("1_7qor5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_ufq8q")
 sprite_frames = SubResource("SpriteFrames_jn1pm")
-animation = &"idle"
+animation = &"follow"
+frame_progress = 0.789303
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7qor5")
