@@ -16,7 +16,6 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body is TileMapLayer:
-		$BulletSprite.reparent(Global.game, true)
 		$AudioStreamPlayer2D.volume_db = damage / 2
 		$AudioStreamPlayer2D.playing = true
 		await $AudioStreamPlayer2D.finished

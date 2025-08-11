@@ -17,6 +17,9 @@ var reload_cooldown = 0.0
 var reloading = false
 var total_bullet_damage = 0
 
+
+
+
 func _ready() -> void:
 	min_damage = Global.current_dino.gun.min_damage
 	max_damage = Global.current_dino.gun.max_damage
@@ -24,7 +27,10 @@ func _ready() -> void:
 	capacity = Global.current_dino.gun.capacity
 	ammo = capacity
 	reload_time = Global.current_dino.gun.reload_time
-
+	texture = Global.current_dino.gun.gun_texture
+	position += Global.current_dino.gun.pos
+	
+	
 func _process(delta: float):
 	 # Rotate gun
 	var mouse_pos = get_global_mouse_position()

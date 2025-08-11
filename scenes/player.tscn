@@ -84,7 +84,7 @@ visible = false
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Gun" type="Sprite2D" parent="."]
-position = Vector2(53, 16)
+position = Vector2(49, 15)
 texture = ExtResource("10_i4ail")
 offset = Vector2(32, -15)
 flip_h = true

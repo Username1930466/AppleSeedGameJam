@@ -6,3 +6,5 @@ extends Resource
 @export var cooldown = 0.0
 @export var capacity = 0
 @export var reload_time = 0.0
+@export var gun_texture : CompressedTexture2D
+@export var pos : Vector2

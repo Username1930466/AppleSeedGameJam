@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=5 format=3 uid="uid://dqbxhs2jd6et5"]
+
+[ext_resource type="PackedScene" uid="uid://dlkvwy6b6b54e" path="res://scenes/Enemies/normal_dino.tscn" id="1_1d81u"]
+[ext_resource type="PackedScene" uid="uid://cr0f248x5bkhg" path="res://scenes/Enemies/flying_dino.tscn" id="2_51r6t"]
+[ext_resource type="Script" uid="uid://dl1anmei5d8cb" path="res://resources/waves/waves.gd" id="2_si6tx"]
+[ext_resource type="PackedScene" uid="uid://blfwl5ksw8nr" path="res://scenes/Enemies/turret_dino.tscn" id="3_1hw0w"]
+
+[resource]
+script = ExtResource("2_si6tx")
+enemy_list = Dictionary[String, PackedScene]({
+"FlyingDino": ExtResource("2_51r6t"),
+"NormalDino": ExtResource("1_1d81u"),
+"TurretDino": ExtResource("3_1hw0w")
+})
+number_of_enemies = 10

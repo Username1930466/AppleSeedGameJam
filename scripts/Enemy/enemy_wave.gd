@@ -1,7 +1,7 @@
 extends Node
 
 
-var spawn_radius := 1000
+var spawn_radius := 1500
 
 
 var waves_list : Array
@@ -30,7 +30,6 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	prepare_enemy_list()
 	load_wave("res://resources/waves/outside/" + waves_list[current_wave_number])
-	current_wave_number += 1
 	current_enemy_number = current_wave.number_of_enemies
 
 
@@ -85,6 +84,9 @@ func current_wave_state():
 			current_wave.number_of_enemies = -1
 			$"../UI/WaveWon".text = ("WAVE WON! You may rest for now \r or \r Press K to continue. " )
 			await start_wave
+			next_wave.wait_time -= 1.0 
+			if next_wave.wait_time <= 1.0:
+				next_wave.wait_time = 1.0
 			$"../UI/WaveWon".visible = false
 			await get_tree().create_timer(1.5)
 			start_new_wave()
@@ -106,13 +108,18 @@ func _on_timer_timeout():
 
 func _on_next_wave_timeout():
 	start_new_wave()
-	current_wave_number += 1
 	$"../UI/WaveWon".visible = false
 
 
 func start_new_wave():
+
 	if current_wave_number < waves_list.size():
-		load_wave("res://resources/waves/outside/" + waves_list[current_wave_number])
-		current_enemy_number = current_wave.number_of_enemies
+		if current_wave_number != 15:
+			load_wave("res://resources/waves/outside/" + waves_list[current_wave_number + 1])
+			current_enemy_number = current_wave.number_of_enemies
+		else:
+			load_wave("res://resources/waves/outside/boss_wave.tres")
+			current_enemy_number = current_wave.number_of_enemies
 	else:
-		load_wave("res://resources/waves/outside/" + waves_list[randi() % waves_list.size()])
+		load_wave("res://resources/waves/outside/" + waves_list[8])
+	current_wave_number += 1

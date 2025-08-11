@@ -4,7 +4,7 @@ var brick_hit = preload("res://sounds/bullet_brick.mp3")
 var flesh_hit = preload("res://sounds/flesh_hit.mp3")
 
 
-var acceptable_enemies = ["NormalDino","FlyingDino","TurretDino"]
+var acceptable_enemies = ["NormalDino","FlyingDino","TurretDino","BossDino"]
 var damage: int
 var bounces = 0
 var pierces = 0

@@ -8,4 +8,4 @@ script = ExtResource("2_4yu6w")
 enemy_list = Dictionary[String, PackedScene]({
 "NormalDino": ExtResource("1_dhrxa")
 })
-number_of_enemies = 3
+number_of_enemies = 10

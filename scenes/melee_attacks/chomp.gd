@@ -9,7 +9,7 @@ var cooldown = 0.0
 var mouth_closed = false
 
 
-var acceptable_enemies = ["NormalDino","FlyingDino","TurretDino"]
+var acceptable_enemies = ["NormalDino","FlyingDino","TurretDino","BossDino"]
 
 
 
@@ -53,7 +53,8 @@ func chomp():
 
 func _on_body_entered(body: Node2D) -> void:
 	var enemy = body.get_groups()
-	if enemy[0] in acceptable_enemies:
+	await get_tree().create_timer(0.1).timeout
+	if body is NormalDinoEnemy or enemy is FlyingDinoEnemy or enemy is TurretDinoEnemy or enemy is BossDinoEnemy:
 		body.take_damage(damage)
 		$FleshPlayer.playing = true
 	if body is TileMapLayer:

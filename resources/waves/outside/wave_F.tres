@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://bmr86jwqsh4tb"]
+
+[ext_resource type="Script" uid="uid://dl1anmei5d8cb" path="res://resources/waves/waves.gd" id="1_eww25"]
+[ext_resource type="PackedScene" uid="uid://cqlvisgy4aavs" path="res://scenes/Enemies/boss_dino.tscn" id="1_yg3kw"]
+
+[resource]
+script = ExtResource("1_eww25")
+enemy_list = Dictionary[String, PackedScene]({
+"BossDino": ExtResource("1_yg3kw")
+})
+number_of_enemies = 1

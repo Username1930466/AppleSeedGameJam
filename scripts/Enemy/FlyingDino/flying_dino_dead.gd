@@ -10,3 +10,4 @@ func Enter():
 	enemy.velocity = Vector2()
 	collision.disabled = true
 	enemy.enemy_dead.emit()
+	$"../../AnimatedSprite2D".play("turn_around")

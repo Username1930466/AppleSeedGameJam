@@ -12,4 +12,4 @@ enemy_list = Dictionary[String, PackedScene]({
 "NormalDino": ExtResource("1_jrh2g"),
 "TurretDino": ExtResource("3_d7kel")
 })
-number_of_enemies = 20
+number_of_enemies = 10

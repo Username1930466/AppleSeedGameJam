@@ -1,0 +1,260 @@
+[gd_scene load_steps=16 format=3 uid="uid://cqlvisgy4aavs"]
+
+[ext_resource type="Texture2D" uid="uid://b36ajwuvw7qvb" path="res://textures/enemy_dinos/boss_shadow.png" id="1_0wk6x"]
+[ext_resource type="Script" uid="uid://bn8n71ci5ivmk" path="res://scripts/Enemy/BossDino/boss_dino_enemy.gd" id="1_qbaq3"]
+[ext_resource type="Texture2D" uid="uid://bfpiq47r6nt8w" path="res://textures/enemy_dinos/dino_boss_Trike.png" id="2_3gcdc"]
+[ext_resource type="Script" uid="uid://ey6sb7phbmet" path="res://scripts/State Machine.gd" id="3_gn3sk"]
+[ext_resource type="Texture2D" uid="uid://bb1pby0jqmdwt" path="res://textures/enemy_dinos/Fall_Particle1.png" id="4_0wk6x"]
+[ext_resource type="Script" uid="uid://d1qc6vitaqnrm" path="res://scripts/Enemy/BossDino/boss_dino_start.gd" id="5_3gcdc"]
+[ext_resource type="Script" uid="uid://bstot3w4nxejb" path="res://scripts/Enemy/BossDino/boss_dino_idle.gd" id="7_jyq3l"]
+[ext_resource type="Script" uid="uid://bmbsbh8go4kfo" path="res://scripts/Enemy/BossDino/boss_dino_laser.gd" id="8_trg4w"]
+[ext_resource type="Script" uid="uid://er03gi5yunmu" path="res://scripts/Enemy/BossDino/boss_dino_dead.gd" id="9_16vba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trg4w"]
+size = Vector2(418, 409)
+
+[sub_resource type="Gradient" id="Gradient_trg4w"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0, 0.694118)
+
+[sub_resource type="Gradient" id="Gradient_16vba"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 1, 0.345098, 1)
+
+[sub_resource type="Animation" id="Animation_0wk6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteZone/Shadow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 119)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteZone/Shadow:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.741176)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteZone/BossSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.83, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteZone/BossSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -2000)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteZone/Shadow:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.165, 0.165)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteZone/CPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_807y6"]
+resource_name = "boss_intro"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteZone/Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.165, 0.165), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteZone/Shadow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 119)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteZone/Shadow:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.741176)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteZone/BossSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3, -2000), Vector2(3, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteZone/BossSprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.83, 1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteZone/CPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gcdc"]
+_data = {
+&"RESET": SubResource("Animation_0wk6x"),
+&"boss_intro": SubResource("Animation_807y6")
+}
+
+[node name="BossDino" type="CharacterBody2D" groups=["BossDino"]]
+collision_layer = 4
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_qbaq3")
+
+[node name="HurtBox" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 31.5)
+shape = SubResource("RectangleShape2D_trg4w")
+
+[node name="SpriteZone" type="Node2D" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="SpriteZone"]
+modulate = Color(1, 1, 1, 0.741176)
+position = Vector2(0, 119)
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("1_0wk6x")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="SpriteZone"]
+position = Vector2(0, 117)
+emitting = false
+amount = 20
+texture = ExtResource("4_0wk6x")
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 126.73
+direction = Vector2(0, -3)
+spread = 108.02
+gravity = Vector2(0, 500)
+initial_velocity_min = 289.48
+initial_velocity_max = 289.48
+
+[node name="BossSprite" type="Sprite2D" parent="SpriteZone"]
+position = Vector2(3, -2000)
+scale = Vector2(0.83, 1)
+texture = ExtResource("2_3gcdc")
+
+[node name="Line2D" type="Line2D" parent="SpriteZone"]
+visible = false
+points = PackedVector2Array(-124, -121, 703, 416, 463, -197)
+width = 28.0
+default_color = Color(1, 0, 0.262745, 0)
+gradient = SubResource("Gradient_trg4w")
+
+[node name="Line2D2" type="Line2D" parent="SpriteZone"]
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 28.0
+gradient = SubResource("Gradient_16vba")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_gn3sk")
+initial_state = NodePath("BossDinoStart")
+
+[node name="BossDinoStart" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_3gcdc")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://d1qc6vitaqnrm"
+
+[node name="BossDinoIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("7_jyq3l")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://bstot3w4nxejb"
+
+[node name="BossDinoLaser" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("8_trg4w")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://bmbsbh8go4kfo"
+
+[node name="BossDinoDead" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("9_16vba")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://er03gi5yunmu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3gcdc")
+}

@@ -19,20 +19,20 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_xkobq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_gsodq")
 }],
 "loop": true,
-"name": &"follow",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_xkobq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gsodq")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -94,7 +94,7 @@ _data = {
 
 [node name="TurretDino" type="CharacterBody2D" groups=["TurretDino"]]
 collision_layer = 4
-collision_mask = 19
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_ti74t")
 

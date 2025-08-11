@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Gun" load_steps=2 format=3 uid="uid://brtuhunnv3y24"]
+[gd_resource type="Resource" script_class="Gun" load_steps=3 format=3 uid="uid://brtuhunnv3y24"]
 
+[ext_resource type="Texture2D" uid="uid://bnjjgc7xddhnn" path="res://textures/dinos/mobdino_Gun_Raptor_trimmed.png" id="1_4qyil"]
 [ext_resource type="Script" uid="uid://b1n8lvcbcjt2v" path="res://resources/bases/gun.gd" id="1_183yg"]
 
 [resource]
@@ -9,4 +10,6 @@ max_damage = 15
 cooldown = 0.25
 capacity = 25
 reload_time = 5.0
+gun_texture = ExtResource("1_4qyil")
+pos = Vector2(0, 50)
 metadata/_custom_type_script = "uid://b1n8lvcbcjt2v"
