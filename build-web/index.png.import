@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2necieb7rs60"
-path="res://.godot/imported/Mob Dino.icon.png-caa548f85ec9e3819212528150bc40dc.ctex"
+uid="uid://b38w13sypj5nr"
+path="res://.godot/imported/index.png-09c277388c108453d7879b60758e4baf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://builds/web/docs/Mob Dino.icon.png"
-dest_files=["res://.godot/imported/Mob Dino.icon.png-caa548f85ec9e3819212528150bc40dc.ctex"]
+source_file="res://build-web/index.png"
+dest_files=["res://.godot/imported/index.png-09c277388c108453d7879b60758e4baf.ctex"]
 
 [params]
 
