@@ -12,6 +12,8 @@ var walking_anim: String
 var can_walk = true
 var menu_scene = "res://scenes/Menu.tscn"
 
+var boss_music = preload("res://sounds/music/Boss.mp3")
+
 func _ready() -> void:
 	idle_anim = Global.current_dino.idle_anim
 	walking_anim = Global.current_dino.walking_anim
@@ -56,5 +58,8 @@ func take_damage(damage):
 		get_tree().paused = true
 		can_walk = false
 		await get_tree().create_timer(2.5).timeout
-		get_tree().paused = false
 		get_tree().change_scene_to_file(menu_scene)
+
+func play_boss_music():
+	$Music.stream = boss_music
+	$Music.playing = true

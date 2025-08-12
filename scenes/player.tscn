@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://rmir0ac8ue5a" path="res://textures/dinos/mobdino_Dino_Raptor_3.png" id="4_oprun"]
 [ext_resource type="Texture2D" uid="uid://canmbmv2ert6l" path="res://textures/dinos/mobdino_Dino_Raptor_4.png" id="5_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://b3bu4mwq67j4p" path="res://textures/dinos/mobdino_Dino_Rex_1.png" id="6_qfm1y"]
-[ext_resource type="AudioStream" uid="uid://pnlxogty5tst" path="res://sounds/music/mobosaurs L1 2nd pass (loopable).mp3" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://pnlxogty5tst" path="res://sounds/music/City.mp3" id="6_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://d0cea5j7yirb0" path="res://textures/dinos/mobdino_Dino_Rex_2.png" id="7_fulsm"]
 [ext_resource type="Texture2D" uid="uid://rf5tek4hwxip" path="res://textures/dinos/mobdino_Dino_Rex_3.png" id="8_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://c1mv0mssclwpu" path="res://textures/dinos/mobdino_Dino_Rex_4.png" id="9_60mlk"]

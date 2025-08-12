@@ -10,6 +10,7 @@ var exp = 300
 func Enter():
 	$"../../SpriteZone/BossSprite".flip_v = true
 	await get_tree().create_timer(5).timeout
+	Global.game.get_node("UI").get_node("YouWinLabel").visible = true
 	spawn_exp()
 
 

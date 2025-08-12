@@ -6,6 +6,9 @@ func _ready() -> void:
 	Global.cam = $Camera2D
 	$UI/HealthBar.max_value = $Player.max_health
 	$UI/HealthBar.value = $Player.health
+	await get_tree().create_timer(5).timeout
+	var hujioewgrs = load("res://scenes/Enemies/boss_dino.tscn").instantiate()
+	add_child(hujioewgrs)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):

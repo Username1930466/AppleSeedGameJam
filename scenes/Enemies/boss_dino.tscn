@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqlvisgy4aavs"]
+[gd_scene load_steps=17 format=3 uid="uid://cqlvisgy4aavs"]
 
 [ext_resource type="Texture2D" uid="uid://b36ajwuvw7qvb" path="res://textures/enemy_dinos/boss_shadow.png" id="1_0wk6x"]
 [ext_resource type="Script" uid="uid://bn8n71ci5ivmk" path="res://scripts/Enemy/BossDino/boss_dino_enemy.gd" id="1_qbaq3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bstot3w4nxejb" path="res://scripts/Enemy/BossDino/boss_dino_idle.gd" id="7_jyq3l"]
 [ext_resource type="Script" uid="uid://bmbsbh8go4kfo" path="res://scripts/Enemy/BossDino/boss_dino_laser.gd" id="8_trg4w"]
 [ext_resource type="Script" uid="uid://er03gi5yunmu" path="res://scripts/Enemy/BossDino/boss_dino_dead.gd" id="9_16vba"]
+[ext_resource type="AudioStream" uid="uid://d5vudx8aiehg" path="res://sounds/stomp.mp3" id="10_16vba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trg4w"]
 size = Vector2(418, 409)
@@ -258,3 +259,7 @@ metadata/_custom_type_script = "uid://er03gi5yunmu"
 libraries = {
 &"": SubResource("AnimationLibrary_3gcdc")
 }
+
+[node name="StompPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 117)
+stream = ExtResource("10_16vba")
